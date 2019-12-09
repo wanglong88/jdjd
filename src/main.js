@@ -2,8 +2,9 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import { Tabbar, TabbarItem } from "vant";
-Vue.use(Tabbar).use(TabbarItem);
+import '@/less/common.less'
+import { Tabbar, TabbarItem ,Icon,Search,Swipe, SwipeItem,Lazyload    } from "vant";
+Vue.use(Tabbar).use(TabbarItem).use(Icon ).use(Search).use(Swipe).use(SwipeItem).use(Lazyload);
 import 'vant/lib/index.css';
 Vue.config.productionTip = false
 
