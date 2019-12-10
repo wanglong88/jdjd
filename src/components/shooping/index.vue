@@ -17,14 +17,21 @@
       <van-button round type="info" size="small" color="red">登录</van-button>
     </div>
     <!-- 购物车里面的物品 -->
-    <div class="cart" v-show="0">
-      <van-checkbox-group v-model="result" v-for="item in cartList" :key="item.id">
-        <van-checkbox :name="item.p" @click="checkAll(item)">{{item.p}}</van-checkbox>
+    <div class="cart" v-show="1">
+      <van-checkbox-group
+        v-model="result"
+        ref="checkboxGroup"
+        v-for="item in cartList"
+        :key="item.id"
+      >
+        <van-checkbox :name="item.p" @click="checkA(item)">{{item.p}}</van-checkbox>
         <div v-for="i in item.data" :key="i.id">
-          <van-checkbox :name="i.name" class="check" checked-color="#07c160"></van-checkbox>
+          <van-checkbox :name="i.name" class="check" checked-color="#07c160" ></van-checkbox>
           <van-card :num="i.num" :price="i.price" :title="i.title" :thumb="i.thumb">
             <div slot="tags">
-              <span class="choose">{{i.style}},{{i.modle}}</span>
+              <span class="choose">
+                <sku @qqq="fn" :id="i.id"></sku>
+              </span>
             </div>
             <div slot="footer">
               <van-stepper v-model="i.num" />
@@ -34,7 +41,7 @@
         </div>
       </van-checkbox-group>
     </div>
-    <div class="empty" v-show="1">
+    <div class="empty" v-show="0">
       <div>
         <img
           src="https://img11.360buyimg.com/jdphoto/s180x180_jfs/t18163/292/540553659/74408/adeb7463/5a93c51cN3bb5e37b.png"
@@ -46,9 +53,6 @@
     <van-submit-bar :price="3050" button-text="去结算">
       <van-checkbox v-model="checked" checked-color="red" bind-group>全选</van-checkbox>
     </van-submit-bar>
-    <van-cell is-link @click="showPopup">展示弹出层</van-cell>
-    <van-popup v-model="show">内容</van-popup>
-    <sku></sku>
   </div>
 </template>
 <script>
@@ -58,7 +62,6 @@ export default {
   name: "XXX",
   data() {
     return {
-      show: false,
       cartList: [
         {
           p: "京东自营",
@@ -66,25 +69,27 @@ export default {
             {
               id: 1,
               num: 2,
-              price: 330,
+              price: 330 / 100,
               desc: "描述信息",
               title:
                 "吉普鸟夹克男外套秋季新款休闲时尚青年百搭大码男装薄款茄克衫",
               thumb: "https://img.yzcdn.cn/vant/t-thirt.jpg",
               name: "a",
-              style: "深蓝色",
-              modle: "M"
+              color: "深蓝色",
+              modle: "M",
+              isT: false
             },
             {
-              id: 3,
+              id: 2,
               num: 2,
-              price: 330,
+              price: 330 / 100,
               desc: "描述信息",
               title: "商品标题",
               thumb: "https://img.yzcdn.cn/vant/t-thirt.jpg",
               name: "b",
-              style: "深蓝色",
-              modle: "M"
+              color: "深蓝色",
+              modle: "M",
+              isT: false
             }
           ]
         },
@@ -92,21 +97,23 @@ export default {
           p: "飞利浦专卖店",
           data: [
             {
-              id: 2,
+              id: 3,
               num: 3,
-              price: 330,
+              price: 330 / 100,
               desc: "描述信息",
               title: "商品标题",
               thumb: "https://img.yzcdn.cn/vant/t-thirt.jpg",
               name: "c",
-              style: "深蓝色",
-              modle: "M"
+              color: "深蓝色",
+              modle: "M",
+              isT: true
             }
           ]
         }
       ],
       checked: false,
-      result: []
+      result: [],
+      is:true
     };
   },
   computed: {},
@@ -114,14 +121,63 @@ export default {
     sku
   },
   methods: {
-    showPopup() {
-      this.show = true;
+    gn() {
+      console.log("444");
     },
-    checkAll(ary) {
-      this.result.length == 0
-        ? ary.data.forEach(i => this.result.push(i.name))
-        : (this.result = []);
+    fn(obj) {
+      // 弹出sku后的跟新视图
+      this.cartList.forEach(i => {
+        i.data.forEach(item => {
+          if (item.id === obj.id) {
+            item.num = obj.num;
+            item.price = obj.price / 100;
+          }
+        });
+      });
+    },
+
+    checkA(ary) {
+      console.log(ary.p);
+      
+      let P=ary.p,arr=[] ;
+      
+
+     ary.data.forEach((i,n)=>{
+       arr[n] = i.name;
+     })
+    //    item.data.forEach(item=>{
+    //     Name = item.name
+    //    })
+    //  })
+     console.log(P,arr);
+     
+
+
+
+      // console.log(this);
+      // if (this.result.length != ary.data.length) {
+        
+      //   ary.data.forEach(i => this.result.push(i.name));
+      //   console.log(this)
+        
+      //   console.log(this.result.length)
+      // } else if (this.result.length > ary.data.length) {
+      //   console.log('666')
+      //   this.result = [];
+      // }
+    },
+    checkAll() {
+      this.$refs.checkboxGroup.toggleAll(true);
+    },
+    toggleAll() {
+      this.$refs.checkboxGroup.toggleAll();
     }
+  },
+
+  provide() {
+    return {
+      qqq: this.fn
+    };
   }
 };
 </script>
@@ -157,4 +213,3 @@ export default {
   }
 }
 </style>
-vb
