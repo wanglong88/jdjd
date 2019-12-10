@@ -8,13 +8,21 @@ import 'vant/lib/index.css';
 
 // Vue.use(Tabbar).use(TabbarItem).use(Icon);
 
-import { Tabbar, TabbarItem, Button, Icon, Card, Tag, SubmitBar, Checkbox, CheckboxGroup, Stepper, Sku, Popup,Search, Swipe, SwipeItem, Lazyload, Grid, GridItem, CountDown,Cell,Divider, Image } from "vant";
+import { Tabbar, TabbarItem, Button, Icon, Card, Tag, SubmitBar, Checkbox, CheckboxGroup, Stepper, Sku, Popup,Search, Swipe, SwipeItem, Lazyload, Grid, GridItem, CountDown,Cell,Divider, Image,Tab, Tabs, TreeSelect, } from "vant";
 
-Vue.use(Tabbar).use(TabbarItem).use(Button).use(Icon).use(Card).use(SubmitBar).use(Tag).use(Checkbox).use(CheckboxGroup).use(Stepper).use(Sku).use(Popup).use(Search).use(Swipe).use(SwipeItem).use(Lazyload).use(Grid).use(GridItem).use(CountDown).use(Cell).use(Divider).use(Image);
+Vue.use(Tabbar).use(TabbarItem).use(Button).use(Icon).use(Card).use(SubmitBar).use(Tag).use(Checkbox).use(CheckboxGroup).use(Stepper).use(Sku).use(Popup).use(Search).use(Swipe).use(SwipeItem).use(Lazyload).use(Grid).use(GridItem).use(CountDown).use(Cell).use(Divider).use(Image).use(Tab).use(Tabs).use(TreeSelect);
 
 // 
 // import { Tabbar, TabbarItem, Icon,  } from "vant";
 // Vue.use(Tabbar).use(TabbarItem).use(Icon);
+
+
+
+// import { Tabbar, TabbarItem ,Icon ,Search,  Grid, GridItem} from "vant";
+// Vue.use(Tabbar).use(TabbarItem).use(Icon).use(Search);
+// Vue.use(Grid).use(GridItem);
+// Vue;
+import 'vant/lib/index.css';
 
 Vue.config.productionTip = false
 
