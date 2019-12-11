@@ -13,7 +13,6 @@
 <script>
 // @ is an alias to /src
 
-import {getpic} from "@/api/index.js";
 export default {
   data() {
     return {
@@ -21,16 +20,10 @@ export default {
     };
   },
   created(){
-    this.fn();
+    
   },
   methods:{
-     fn(){
-       getpic().then(data=>{
-       console.log(data);
-     }).catch(()=>{
-
-     })
-     }
+    
   }
 }
 </script>

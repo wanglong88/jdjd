@@ -5,7 +5,7 @@ import store from './store'
 import {
   Tabbar, TabbarItem, GoodsAction,
   GoodsActionIcon,
-  GoodsActionButton, Button, Cell, CellGroup, NavBar,Icon,Swipe, SwipeItem
+  GoodsActionButton, Button, Cell, CellGroup, NavBar,Icon,Swipe, SwipeItem, CouponCell, CouponList , Row, Col,Sku,Tag,Area
 } from "vant";
 import Api from './api/index.js';
 Vue.prototype.$api = Api;
@@ -18,7 +18,12 @@ Vue.use(Tabbar).use(TabbarItem).use(GoodsAction)
   .use(Cell).use(CellGroup)
   .use(NavBar)
   .use(Icon)
-  .use(Swipe).use(SwipeItem);
+  .use(Swipe).use(SwipeItem)
+  .use(CouponCell).use(CouponList)
+  .use(Row).use(Col)
+  .use(Sku)
+  .use(Tag)
+  .use(Area);
 import 'vant/lib/index.css';
 Vue.config.productionTip = false
 
