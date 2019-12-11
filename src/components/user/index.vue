@@ -7,16 +7,10 @@
           <van-icon name="chat-o" class="vantI" size="25px" />
         </div>
       </div>
-      <div class="two lt">
-        <van-image round width="6rem" height="6rem" src="https://img.yzcdn.cn/vant/cat.jpeg" />
-        <!-- <van-image round width="6rem" color='#ccc' height="6rem" src="https://dss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2611319105,3497875243&fm=26&gp=0.jpg" /> -->
-        <span @click="btn">
-          登录 / 注册
-          <a href="javascript:;">
-            <van-icon name="arrow" />
-          </a>
-        </span>
-      </div>
+
+      <wd v-if="!$store.state.flag"></wd>
+      <yd v-else></yd>
+      
       <div class="three">
         <p>商品关注</p>
         <p>店铺关注</p>
@@ -156,20 +150,22 @@
 </template>
 <script>
 // @ is an alias to /src
+import wd from './wDl'
+import yd from './yiDl'
 export default {
   name: "XXX",
   data() {
     return {};
   },
-  components: {},
+  components: {
+    wd,yd
+  },
   methods: {
-    btn() {
-      this.$router.push("/login");
-    }
+    
   }
 };
 </script>
-<style lang="less" scoped>
+<style lang="less">
 .top {
   background: url("../../assets/bj2.jpg");
   display: flex;

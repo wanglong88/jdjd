@@ -8,11 +8,11 @@
     </header>
     <main>
       <div class="inpBox">
-        <input type="text" class="inp1" placeholder="用户名/邮箱/手机号" />
+        <input type="text" class="inp1" placeholder="用户名/邮箱/手机号" v-model="name" />
         <!-- <van-icon name="cross" size="10px" /> -->
-        <input type="text" class="inp2" placeholder="输入密码" />
+        <input type="password" class="inp2" placeholder="输入密码" v-model="pas" />
       </div>
-      <div class="loginIcon">登录</div>
+      <div class="loginIcon" @click="fn">登录</div>
       <div class="yzBox cl">
         <span class="lt">短信登录验证</span>
         <span class="rt">手机快速注册</span>
@@ -44,11 +44,35 @@
 export default {
   name: "XXX",
   data() {
-    return {};
+    return {
+      name: "",
+      pas: ""
+    };
   },
   components: {},
   methods: {
-    btn() {}
+    btn() {},
+    fn() {
+      //  var params = new URLSearchParams();
+      //  params.append('username',this.name)
+      //  params.append('password',this.pas)
+      this.$store
+        .dispatch("userN", { username: this.name, password: this.pas })
+        .then(data => {
+          console.log(data);
+          if (data.code == 0) {
+            //  this.$router.push('')
+            // console.log(data.data)
+            console.log(this.$store.state.userName);
+            // this.$store.state.
+            console.log("登录成功");
+            this.$router.push("/");
+          }
+        })
+        .catch(err => { 
+          console.log(err, "失败");
+        });
+    }
   }
 };
 </script>

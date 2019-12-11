@@ -7,6 +7,7 @@ import classift from './classift'
 import home from './home'
 import shooping from './shooping'
 import user from './user'
+import detailed from './detailed'
 Vue.use(VueRouter)
 
 const routes = [
@@ -15,7 +16,8 @@ const routes = [
     name: 'index',
     component: Index,
     redirect:'/home',
-    children:[].concat(classift,home,shooping,user)
+    // children:[].concat(classift,home,shooping,user)
+    children:[].concat(classift,home,shooping,user,detailed)
   },
   {
     path:'/login',
