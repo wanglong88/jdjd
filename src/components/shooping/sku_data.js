@@ -42,7 +42,7 @@ export default {
       list: [
         {
           id: 2259,
-          price: 120, //价格
+          price: 12000, //价格
           discount: 122, 
           color: '白色',
           size:'M',
@@ -53,7 +53,7 @@ export default {
         },
         {
           id: 2260,
-          price: 110,
+          price: 11000,
           discount: 112, 
           size:'L',
           color: '白色',
@@ -64,7 +64,7 @@ export default {
         },
         {
           id: 2257,
-          price: 130,
+          price: 13000,
           discount: 132, 
           s1: '30349',
           color: '天蓝色',
@@ -75,7 +75,7 @@ export default {
         },
         {
           id: 2258,
-          price: 100,
+          price: 10000,
           discount: 100, 
           s1: '30349',
           color: '天蓝色',

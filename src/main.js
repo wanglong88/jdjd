@@ -28,6 +28,9 @@ import {
   GoodsAction,
   GoodsActionIcon,
   GoodsActionButton,
+  Dialog,
+  Picker,
+  Field
 
 } from "vant";
 Vue
@@ -51,6 +54,9 @@ Vue
   .use(Stepper)
   .use(Tag)
   .use(Sku)
+  .use(Dialog)
+  .use(Picker)
+  .use(Field)
   .use(Cell);
 import 'vant/lib/index.css';
 Vue.config.productionTip = false
