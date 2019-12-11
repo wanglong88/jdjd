@@ -3,7 +3,7 @@
     <div class="header">
       <van-icon class="left" name="arrow-left" @click="change2" />
       <van-search class="sou1" shape="round" placeholder="电动自行车" v-model="value" @click="change" v-if="flag" />
-      <van-search class="sou1" shape="round" placeholder="电动自行车" v-model="value" autofocus  v-else-if="!flag" @search='chart' />
+      <van-search class="sou1" shape="round" placeholder="电动自行车" v-model="value" autofocus @click="change" v-else-if="!flag" @search='chart' />
 
       <my-search v-else></my-search>
 

@@ -21,8 +21,8 @@
       <van-dropdown-item name="1" v-model="value1" :options="option1" get-container />
       <van-dropdown-item class="xiao" title="销量" disabled />
          <van-dropdown-item v-model="value2" :options="option2">
-           <van-button type="info" size="mini">确认</van-button>
-            <van-button type="info" size="mini">取消</van-button>
+            <van-button type="info" class="qu" size="mini">取消</van-button>
+             <van-button type="info" class="que" size="mini">确认</van-button>
         </van-dropdown-item>
            <van-dropdown-item name="2" title="筛选" disabled />
      
@@ -104,9 +104,24 @@ export default {
     overflow: hidden;
   }
 }
-// .navBox{
-  
-// }
+.navBox{
+   .que{
+      padding: 0 21vw 0vw 21vw;
+      box-sizing: border-box;
+      background: #e93b3d;
+      border: none;
+      height: 12vw;
+   }
+   .qu{
+       padding: 0 21vw 0vw 21vw;
+       background: #fff;
+       color: #e93b3d;
+       margin-right: -5px;
+       border: none;
+       height: 12vw;
+   }
+   
+}
 //  .van-dropdown-menu__item--disabled{
 //      .van-dropdown-menu__title{
 //          .van-ellipsis{

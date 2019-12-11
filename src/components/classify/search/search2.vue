@@ -1,8 +1,9 @@
 <template>
   <div class="zon">
     <div class="a0">
-      <div class="a1" v-for="(item,index) in name" :key="index" >
+      <div class="a1" v-for="(item,index) in name" :key="index" @click="change" >
          {{item}}
+         <div v-if="chu"></div>
       </div>
     </div>
     
@@ -15,11 +16,16 @@ export default {
   name: "search2",
   data() {
     return {
-        name:['京东物流','新品','品牌','销量','上市时间','鞋底材质','功能','闭合方式','鞋面材质','销量',]
+        name:['京东物流','新品','品牌','销量','上市时间','鞋底材质','功能','闭合方式','鞋面材质','销量',],
+        chu:false,
     };
   },
   components: {},
-  methods: {}
+  methods: {
+      change(){
+          
+      }
+  }
 };
 </script>
 <style lang="less" scoped>
