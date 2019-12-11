@@ -3,6 +3,10 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import '@/less/common.less'
+
+import Vant from 'vant';
+import 'vant/lib/index.css';
+Vue.use(Vant);
 // import {
 //   Tabbar, TabbarItem, GoodsAction,
 //   GoodsActionIcon,
@@ -20,14 +24,14 @@ Vue.prototype.$ajax = axios
 //   .use(NavBar)
 //   .use(Icon)
 //   .use(Swipe).use(SwipeItem);
-import 'vant/lib/index.css';
+// import 'vant/lib/index.css';
 // import { Tabbar, TabbarItem, Icon,  } from "vant";
 
 // Vue.use(Tabbar).use(TabbarItem).use(Icon);
 
-import { Tabbar, TabbarItem, Button, Icon, Card, Tag, SubmitBar, Checkbox, CheckboxGroup, Stepper, Sku, Popup,Search, Swipe, SwipeItem, Lazyload, Grid, GridItem, CountDown,Cell,Divider, Image,Tab, Tabs, TreeSelect,GoodsAction,GoodsActionIcon,GoodsActionButton,CellGroup,NavBar } from "vant";
+// import { Tabbar, TabbarItem, Button, Icon, Card, Tag, SubmitBar, Checkbox, CheckboxGroup, Stepper, Sku, Popup,Search, Swipe, SwipeItem, Lazyload, Grid, GridItem, CountDown,Cell,Divider, Image,Tab, Tabs, TreeSelect,GoodsAction,GoodsActionIcon,GoodsActionButton,CellGroup,NavBar } from "vant";
 
-Vue.use(Tabbar).use(TabbarItem).use(Button).use(Icon).use(Card).use(SubmitBar).use(Tag).use(Checkbox).use(CheckboxGroup).use(Stepper).use(Sku).use(Popup).use(Search).use(Swipe).use(SwipeItem).use(Lazyload).use(Grid).use(GridItem).use(CountDown).use(Cell).use(Divider).use(Image).use(Tab).use(Tabs).use(TreeSelect).use(GoodsAction).use(GoodsActionIcon).use(GoodsActionButton).use(CellGroup).use(NavBar);
+// Vue.use(Tabbar).use(TabbarItem).use(Button).use(Icon).use(Card).use(SubmitBar).use(Tag).use(Checkbox).use(CheckboxGroup).use(Stepper).use(Sku).use(Popup).use(Search).use(Swipe).use(SwipeItem).use(Lazyload).use(Grid).use(GridItem).use(CountDown).use(Cell).use(Divider).use(Image).use(Tab).use(Tabs).use(TreeSelect).use(GoodsAction).use(GoodsActionIcon).use(GoodsActionButton).use(CellGroup).use(NavBar);
 
 // 
 // import { Tabbar, TabbarItem, Icon,  } from "vant";
@@ -39,7 +43,7 @@ Vue.use(Tabbar).use(TabbarItem).use(Button).use(Icon).use(Card).use(SubmitBar).u
 // Vue.use(Tabbar).use(TabbarItem).use(Icon).use(Search);
 // Vue.use(Grid).use(GridItem);
 // Vue;
-import 'vant/lib/index.css';
+// import 'vant/lib/index.css';
 
 Vue.config.productionTip = false
 
