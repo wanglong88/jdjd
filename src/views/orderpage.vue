@@ -147,8 +147,7 @@ export default {
 }
 .goodsBox {
   overflow: hidden;
-   background: #ccc
-   ;
+   background: rgb(233, 228, 228);
   .p1 {
     font-size: 20px;
     color: black;
@@ -157,7 +156,6 @@ export default {
   .good {
     display: flex;
     justify-content: space-between;
-   
     img {
       width: 80px;
       height: 90px;

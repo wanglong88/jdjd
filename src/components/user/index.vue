@@ -2,7 +2,7 @@
   <div>
     <header class="top">
       <div class="one cl">
-        <p class="lt">设置</p>
+        <p class="lt"><router-link to="/setr">设置</router-link></p>
         <div class="lt">
           <van-icon name="chat-o" class="vantI" size="25px" />
         </div>
@@ -29,13 +29,13 @@
         <span>
           <van-icon name="balance-pay" size="30px" />
           <div>
-            <router-link to="../../views/orderpage.vue">待付款</router-link>
+            <router-link to="/views/orderpage.vue">待付款</router-link>
           </div>
         </span>
         <span>
           <van-icon name="gift-o" size="30px" />
           <div>
-            <router-link to="/user/waitreceive">待收货</router-link>
+            <router-link to="../../views/orderpage.vue">待收货</router-link>
           </div>
         </span>
         <span>
@@ -49,7 +49,9 @@
         <!-- <div style="float:left;width: 1px;height: 66px; background: #ccc;"></div> -->
         <span>
           <van-icon name="description" size="30px" color="red" />
-          <div><router-link to="/view/orderpage">我的订单</router-link></div>
+          <div>
+            <router-link to="/view/orderpage">我的订单</router-link>
+          </div>
         </span>
       </div>
       <div class="boxTwo">
