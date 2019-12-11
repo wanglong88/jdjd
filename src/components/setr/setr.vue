@@ -2,7 +2,7 @@
   <div class="bigBox">
     <header class="headerBox">
       <div class="lt iconOne">
-        <van-icon name="arrow-left" size="30px" />
+        <van-icon name="arrow-left" size="30" @click="$router.go(-1)"/>
       </div>
       <p class="rt">账户设置</p>
     </header>
