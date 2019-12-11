@@ -1,9 +1,8 @@
-import User from '../components/user/index.vue'
-
+import User from '@/components/user/index.vue'
 export default [
     {
-        path:'/user',
-        name:'user',
-        component:User
+        path: '/user',
+        name: 'user',
+        component: User,
     }
 ]

@@ -8,11 +8,11 @@
     </header>
     <main>
       <div class="inpBox">
-        <input type="text" class="inp1" placeholder="用户名/邮箱/手机号" />
+        <input type="text" class="inp1" placeholder="用户名/邮箱/手机号" v-model="name" />
         <!-- <van-icon name="cross" size="10px" /> -->
-        <input type="text" class="inp2" placeholder="输入密码" />
+        <input type="password" class="inp2" placeholder="输入密码" v-model="psw" />
       </div>
-      <div class="loginIcon">登录</div>
+      <button class="loginIcon" @click="login">登录</button>
       <div class="yzBox cl">
         <span class="lt">短信登录验证</span>
         <span class="rt">手机快速注册</span>
@@ -42,13 +42,32 @@
 <script>
 // @ is an alias to /src
 export default {
-  name: "XXX",
+  name: "login",
   data() {
-    return {};
+    return {
+      name: "",
+      psw: ""
+    };
   },
-  components: {},
   methods: {
-    btn() {}
+    login() {
+      this.$router.push("/home");
+      // if (this.name || this.psw) {
+      //   alert("用户名密码不能为空");
+      //   return;
+      // }else{
+      //   this.$router.push('/home')
+      // }
+
+      // login({
+      //   name: this.name,
+      //   psw: this.psw
+      // }).then(data => {
+      //   localStorage.setItem("token", "ssssswwwwwggggg");
+      //   this.$store.commit("stateChange", { loginState: true });
+      //   this.$router.back();
+      // });
+    }
   }
 };
 </script>
@@ -69,7 +88,8 @@ export default {
 .inpBox {
   width: 10vw;
   height: 8vw;
-  > .inp1 {
+  > .inp1,
+  .inp2 {
     text-align: center;
     border: none;
     border-bottom: 1px solid #ccc;
@@ -77,22 +97,14 @@ export default {
     height: 6vh;
     margin: 20px auto;
   }
-  > .inp2 {
-    text-align: center;
-    border: none;
-    border-bottom: 1px solid #ccc;
-    width: 90vw;
-    height: 6vh;
-    margin: 10px auto;
-  }
 }
 .loginIcon {
   margin: 150px auto;
   background: rgb(247, 114, 114);
   width: 80vw;
-  height: 10vh;
+  height: 8vh;
   text-align: center;
-  line-height: 10vh;
+  line-height: 8vh;
   border-radius: 36px;
   font-size: 30px;
 }
