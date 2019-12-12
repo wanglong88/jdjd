@@ -8,11 +8,14 @@
       <van-tabbar-item  to="/classify?type=1">
       <img src="../assets/logo/2.png" class="logos" alt="">
       </van-tabbar-item>
-      <van-tabbar-item >
-        <img src="../assets/logo/3.gif" class="logos" alt="">
+      <van-tabbar-item>
+        
+        <a href="https://wq.jd.com/webportal/event/27358?ptag=138097.1.19&sceneval=2">
+          <img src="../assets/logo/3.gif" class="logos" alt />
+        </a>
       </van-tabbar-item>
-      <van-tabbar-item  to="/shooping">
-      <img src="../assets/logo/4.png" class="logos" alt="">
+      <van-tabbar-item to="/shooping">
+        <img src="../assets/logo/4.png" class="logos" alt />
       </van-tabbar-item>
       <van-tabbar-item  to="/user">
       <img v-if="$store.state.flag" src="../assets/logo/5.png" class="logos" alt="">
@@ -53,7 +56,7 @@ export default {
 }
 </script>
 <style lang="less" scoped>
-.logos{
+.logos {
   width: 16vw;
 }
 </style>

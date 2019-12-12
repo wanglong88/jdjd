@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Index from '../views/index.vue'
 import Login from '../views/login.vue'
+import ZC from '../views/ZC.vue'
 
 import classift from './classift'
 import home from './home'
@@ -23,6 +24,11 @@ const routes = [
     path:'/login',
     name:'login',
     component:Login
+  },
+  {
+    path:'/ZC',
+    name:'ZC',
+    component:ZC
   },
   {
     path:'*',

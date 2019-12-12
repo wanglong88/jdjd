@@ -27,7 +27,7 @@ app.use((req, res, next) => {
 	req.method === 'OPTIONS' ? res.send('CURRENT SERVICES SUPPORT CROSS DOMAIN REQUESTS!') : next();
 });
 app.use(session({
-	name:'qqq', // 默认 connect.sid
+	name: 'qqq', // 默认 connect.sid
 	secret: 'myqqq', // session会根据 这个属性 和后端种在session的属性名 来生成对应的字段
 	saveUninitialized: false,
 	resave: false,
@@ -35,11 +35,7 @@ app.use(session({
 		maxAge: 1000 * 60 * 60 * 24 * 30
 	}
 }));
-// app.use(bodyParser.urlencoded({
-// 	extended: false
-// }));
 
-/*-QUERY DATA-*/
 
 
 const {
@@ -51,11 +47,6 @@ app.use(async (req, res, next) => {
 });
 
 
-/*-ROUTE-*/
-// app.use('/job', require('./routes/job'));
-
-
-// app.use(bodyParser.urlencoded({extended:true}));
 // 把前端输入的用户名密码拿到  存到req.body
 app.use((req, res, next) => {
 
@@ -95,40 +86,64 @@ app.use((req, res, next) => {
 		res.send('');
 	})
 })
-app.get('/qqq', (req, res) => {
-	res.send({
-		qqq: 123
-	})
-})
 
-app.get('/logs',function(req,res){
-   if(req.session.userId){
-	   res.send({
-		   code:0
-	   })
-   }
+app.get('/logs', function (req, res) {
+	if (req.session.userId) {
+		res.send({
+			code: 0
+		})
+	}
 })
 
 // 获取用户详细信息
-app.get('/user/info',function(req,res){
+app.get('/user/info', function (req, res) {
 	let { userId } = req.body;
-	   let isId = req.data.filter(item=>{
-		   return item.id == userId
-	   })
-	   
+	let isId = req.data.filter(item => {
+		return item.id == userId
+	})
+})
+
+// 注册接口
+app.post('/sign', function (req, res) {
+	let { username, password } = req.body;
+	let data = req.data;
+	let judge = data.some(item => {
+		return item.username == username
+	})
+	if (judge) {
+		res.send({
+			code: 1,
+			msg: 'already'
+		})
+		return;
+	}
+	data.push(req.body);
+	writeFile('./json/user.json', JSON.stringify(data)).then(data => {
+		// 写入成功
+		res.send({
+			code: 0,
+			data: 'success'
+		})
+	}).catch(() => {
+		res.send({
+			code: 1,
+			data: 'fail'
+		})
+	})
+
 })
 
 // 登录接口
 
 app.post('/login', function (req, res) {
-	let { username, password} = req.body;
+	let { username, password } = req.body;
 	let bol = req.data.some(item => {
 		return item.username == username && item.password == password
 	});
 
 	if (bol) {
-    // console.log(req.session);
-	   req.session.userId = username
+		// console.log(req.session);
+		req.session.userId = username
 		res.send({
 			code: 0,
 			data: {
@@ -141,6 +156,17 @@ app.post('/login', function (req, res) {
 			msg: '用户名密码错误'
 		})
 	}
+})
+
+// 清除Session
+app.post('/delSession', function (req, res) {
+    // req.session.removeAttribute(req.session.userId)
+    req.session.userId = null;
+    if (!req.session.userId) {
+        res.send({
+            code: 0,
+        })
+    }
 })
 
 

@@ -9,6 +9,7 @@
           <van-icon name="arrow" />
         </a>
       </span>
+      <div @click="btn2">退出登录</div>
     </div>
   </div>
 </template>
@@ -36,6 +37,18 @@ export default {
   methods:{
    btn(){
        this.$router.push("/login");
+   },
+   btn2(){
+     axios.post('/delSession').then(data=>{
+       if (data.code==0) {
+         console.log('退出成功');
+         
+         this.$router.push("/login");
+       }
+     }).catch(err=>{
+       console.log('0000000');
+       
+     })
    }
   },
   components: {}

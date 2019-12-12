@@ -36,7 +36,6 @@
                   :key="index"
                   :icon="item.img"
                   :text="item.txt"
-                  background-color="red"
                 ></van-grid-item>
               </van-grid>
             </van-swipe-item>
@@ -81,7 +80,7 @@
             </div>
             <div class="seckill-bottom">
               <ul class="seckill-list">
-                <li v-for="(i,n) in seckillList" :key="n">
+                <li v-for="(i) in seckillList" :key="i.id">
                   <img :src="i.img" alt />
                   <span class="seckill-new-price">{{i.new}}</span>
                   <span class="seckill-original-price">{{i.lod}}</span>
@@ -97,29 +96,13 @@
             </div>
           </div>
           <ul class="poker">
-            <li class="poker-img">
-              <img src="../../assets/ms.png" alt />
+            <li class="poker-img" v-for="(i,n) in pokerList" :key="n">
+              <img :src="i.img" alt />
               <div class="imgs">
-                <img src="../../assets/1212/1212.jpg" alt />
+                <img :src="i.imgs" alt />
               </div>
-            </li>
-            <li class="poker-img">
-              <img src="../../assets/ms.png" alt />
-              <div class="imgs">
-                <img src="../../assets/1212/1212.jpg" alt />
-              </div>
-            </li>
-            <li class="poker-img">
-              <img src="../../assets/ms.png" alt />
-              <div class="imgs">
-                <img src="../../assets/1212/1212.jpg" alt />
-              </div>
-            </li>
-            <li class="poker-img">
-              <img src="../../assets/ms.png" alt />
-              <div class="imgs">
-                <img src="../../assets/1212/1212.jpg" alt />
-              </div>
+              <span class="mianJ">{{i.mj}}</span>
+              <span class="lei">{{i.L}}</span>
             </li>
           </ul>
           <div class="tit">
@@ -231,7 +214,13 @@
               <img src="../../assets/bulletin.jpg" alt />
             </div>
             <div class="bulletin_banner">
-              <van-swipe style="height: 50px;" :autoplay="1800" :loop="true" :vertical="true" :show-indicators="false">
+              <van-swipe
+                style="height: 50px;"
+                :autoplay="1800"
+                :loop="true"
+                :vertical="true"
+                :show-indicators="false"
+              >
                 <van-swipe-item>
                   <span>热门</span>
                   <span>第六师傅师傅的hi福利会带来张素华富含失踪</span>
@@ -251,25 +240,88 @@
               </van-swipe>
             </div>
             <div class="bulletin_right">
-             <span>更多</span>
+              <span>更多</span>
             </div>
           </div>
         </div>
-        <div class="bulletin_banner">
-          <van-swipe style="height: 50px;" :vertical="true">
-            <van-swipe-item>1</van-swipe-item>
-            <van-swipe-item>2</van-swipe-item>
-            <van-swipe-item>3</van-swipe-item>
-            <van-swipe-item>4</van-swipe-item>
-          </van-swipe>
+        <div class="recommend">
+          <div class="rcm-img">
+            <img src="../../assets/Recommend.png" alt />
+          </div>
+          <div class="rcm-list cl">
+            <ul>
+              <li>
+                <div class="rcm-listImg">
+                  <img src="../../assets/kuzi.jpg" alt />
+                </div>
+                <div class="rcm-listTxt">
+                  <span class="rcm-listIcon">
+                    <img src="../../assets/12icon.webp" alt />
+                    花花公子（PLAYBOY）高阶复古水洗浅蓝色九分牛仔裤修身小脚裤韩版潮流9分裤子男士 浅蓝色 30
+                  </span>
+                  <span class="rcm-fontSiz lt">￥268</span>
+                  <div class="rcm-listXs rt">看相似</div>
+                </div>
+              </li>
+              <li>
+                <div class="rcm-listImg">
+                  <img src="../../assets/kuzi.jpg" alt />
+                </div>
+                <div class="rcm-listTxt">
+                  <span class="rcm-listIcon">
+                    <img src="../../assets/12icon.webp" alt />
+                    花花公子（PLAYBOY）高阶复古水洗浅蓝色九分牛仔裤修身小脚裤韩版潮流9分裤子男士 浅蓝色 30
+                  </span>
+                  <span class="rcm-fontSiz lt">￥268</span>
+                  <div class="rcm-listXs rt">看相似</div>
+                </div>
+              </li>
+              <li>
+                <div class="rcm-listImg">
+                  <img src="../../assets/kuzi.jpg" alt />
+                </div>
+                <div class="rcm-listTxt">
+                  <span class="rcm-listIcon">
+                    <img src="../../assets/12icon.webp" alt />
+                    花花公子（PLAYBOY）高阶复古水洗浅蓝色九分牛仔裤修身小脚裤韩版潮流9分裤子男士 浅蓝色 30
+                  </span>
+                  <span class="rcm-fontSiz lt">￥268</span>
+                  <div class="rcm-listXs rt">看相似</div>
+                </div>
+              </li>
+              <li>
+                <div class="rcm-listImg">
+                  <img src="../../assets/kuzi.jpg" alt />
+                </div>
+                <div class="rcm-listTxt">
+                  <span class="rcm-listIcon">
+                    <img src="../../assets/12icon.webp" alt />
+                    花花公子（PLAYBOY）高阶复古水洗浅蓝色九分牛仔裤修身小脚裤韩版潮流9分裤子男士 浅蓝色 30
+                  </span>
+                  <span class="rcm-fontSiz lt">￥268</span>
+                  <div class="rcm-listXs rt">看相似</div>
+                </div>
+              </li>
+              <li>
+                <div class="rcm-listImg">
+                  <img src="../../assets/kuzi.jpg" alt />
+                </div>
+                <div class="rcm-listTxt">
+                  <span class="rcm-listIcon">
+                    <img src="../../assets/12icon.webp" alt />
+                    花花公子（PLAYBOY）高阶复古水洗浅蓝色九分牛仔裤修身小脚裤韩版潮流9分裤子男士 浅蓝色 30
+                  </span>
+                  <span class="rcm-fontSiz lt">￥268</span>
+                  <div class="rcm-listXs rt">看相似</div>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="bulletin_banner">
-          <van-swipe style="height: 50px;" vertical>
-            <van-swipe-item>1</van-swipe-item>
-            <van-swipe-item>2</van-swipe-item>
-            <van-swipe-item>3</van-swipe-item>
-            <van-swipe-item>4</van-swipe-item>
-          </van-swipe>
+        <div class="WWW">
+          <a href="#">
+            <div class="m-back-to-top">走你!</div>
+          </a>
         </div>
       </main>
     </div>
@@ -306,61 +358,90 @@ export default {
           img:
             "//img14.360buyimg.com/n1/s150x150_jfs/t1/43394/14/4347/330706/5cd25169E1de40e86/b4f41a0f58d6de73.jpg.dpg",
           new: "￥273",
-          lod: "￥288"
+          lod: "￥288",
+          id: 1
         },
         {
           img:
-            "//img14.360buyimg.com/n1/s150x150_jfs/t1/43394/14/4347/330706/5cd25169E1de40e86/b4f41a0f58d6de73.jpg.dpg",
-          new: "￥273",
-          lod: "￥288"
+            "//img14.360buyimg.com/n1/s150x150_jfs/t1/93463/8/4958/103779/5de9ee38E2a6e3eb0/dbc44ce969a2ad34.jpg.dpg",
+          new: "￥358",
+          lod: "￥698",
+          id: 2
         },
         {
           img:
-            "//img14.360buyimg.com/n1/s150x150_jfs/t1/43394/14/4347/330706/5cd25169E1de40e86/b4f41a0f58d6de73.jpg.dpg",
-          new: "￥273",
-          lod: "￥288"
+            "//img14.360buyimg.com/n1/s150x150_jfs/t1/99415/39/4775/148593/5de9ba75E0a8547e4/2ca16313c679bd96.png.webp",
+          new: "￥16.8",
+          lod: "￥54.6",
+          id: 3
         },
         {
           img:
-            "//img14.360buyimg.com/n1/s150x150_jfs/t1/43394/14/4347/330706/5cd25169E1de40e86/b4f41a0f58d6de73.jpg.dpg",
-          new: "￥273",
-          lod: "￥288"
+            "//img14.360buyimg.com/n1/s150x150_jfs/t1/92466/34/4117/195933/5de5c8baEda7e6eee/ecf2def5cd5a8e37.jpg.dpg",
+          new: "￥149",
+          lod: "￥399",
+          id: 4
         },
         {
           img:
-            "//img14.360buyimg.com/n1/s150x150_jfs/t1/43394/14/4347/330706/5cd25169E1de40e86/b4f41a0f58d6de73.jpg.dpg",
-          new: "￥273",
-          lod: "￥288"
+            "//img14.360buyimg.com/n1/s150x150_jfs/t1/92475/4/4412/96488/5de718daE1c68ea83/4c29ee87187220f7.jpg.dpg",
+          new: "￥449",
+          lod: "￥629",
+          id: 5
         },
         {
           img:
-            "//img14.360buyimg.com/n1/s150x150_jfs/t1/43394/14/4347/330706/5cd25169E1de40e86/b4f41a0f58d6de73.jpg.dpg",
-          new: "￥273",
-          lod: "￥288"
+            "//img14.360buyimg.com/n1/s150x150_jfs/t1/95074/26/4633/199466/5de79058Edff76c64/55719fd5b122f133.jpg.dpg",
+          new: "￥99",
+          lod: "￥119.9",
+          id: 6
         },
         {
           img:
-            "//img14.360buyimg.com/n1/s150x150_jfs/t1/43394/14/4347/330706/5cd25169E1de40e86/b4f41a0f58d6de73.jpg.dpg",
-          new: "￥273",
-          lod: "￥288"
+            "//img14.360buyimg.com/n1/s150x150_jfs/t1/90260/15/4894/162945/5de9e531Ed7dbe998/8139955ca52bc833.jpg.dpg",
+          new: "￥1669",
+          lod: "￥1699",
+          id: 7
         },
         {
           img:
-            "//img14.360buyimg.com/n1/s150x150_jfs/t1/43394/14/4347/330706/5cd25169E1de40e86/b4f41a0f58d6de73.jpg.dpg",
-          new: "￥273",
-          lod: "￥288"
+            "//img14.360buyimg.com/n1/s150x150_jfs/t1/54264/5/12976/138189/5de9dcc9E47922a78/d1c5cc35a073239a.jpg.dpg",
+          new: "￥787",
+          lod: "￥1029",
+          id: 8
         },
         {
           img:
-            "//img14.360buyimg.com/n1/s150x150_jfs/t1/43394/14/4347/330706/5cd25169E1de40e86/b4f41a0f58d6de73.jpg.dpg",
-          new: "￥273",
-          lod: "￥288"
+            "//img14.360buyimg.com/n1/s150x150_jfs/t1/102400/38/4618/37937/5de86f3cE22d43a30/aa60887d7c92a0f7.jpg.dpg",
+          new: "￥67",
+          lod: "￥179",
+          id: 9
+        }
+      ],
+      pokerList: [
+        {
+          img: require("../../assets/ms.png"),
+          imgs: require("../../assets/1212/1212.jpg"),
+          mj: "领199减100券",
+          L: "宠物生活"
         },
         {
-          img:
-            "//img14.360buyimg.com/n1/s150x150_jfs/t1/43394/14/4347/330706/5cd25169E1de40e86/b4f41a0f58d6de73.jpg.dpg",
-          new: "￥273",
-          lod: "￥288"
+          img: require("../../assets/ms.png"),
+          imgs: require("../../assets/1212/1212.jpg"),
+          mj: "领199减100券",
+          L: "宠物生活"
+        },
+        {
+          img: require("../../assets/ms.png"),
+          imgs: require("../../assets/1212/1212.jpg"),
+          mj: "领199减100券",
+          L: "宠物生活"
+        },
+        {
+          img: require("../../assets/ms.png"),
+          imgs: require("../../assets/1212/1212.jpg"),
+          mj: "领199减100券",
+          L: "宠物生活"
         }
       ],
       time: 30 * 60 * 60 * 1000
@@ -375,6 +456,21 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+.WWW {
+  width: 10vw;
+  height: 10vw;
+  position: fixed;
+  bottom: 18vw;
+  right: 3vw;
+  background: green;
+  border-radius: 50%;
+  
+  .m-back-to-top {
+   padding-top: 2vw;
+   color: #fff;
+  }
+}
+
 .Box {
   background: #f0f2f5;
 }
@@ -511,9 +607,10 @@ header {
           width: 18vw;
           height: 100%;
           float: left;
+          margin-left: 2vw;
           img {
             width: 100%;
-            height: 13vw;
+            height: 18vw;
           }
           .seckill-new-price {
             display: block;
@@ -527,6 +624,7 @@ header {
             display: block;
             text-decoration: line-through;
             color: #999;
+            font-size: 14px;
           }
         }
       }
@@ -538,7 +636,7 @@ header {
 
   .zhu-img {
     width: 100%;
-    height: 30vw;
+    height: 27vw;
     img {
       width: 100%;
       height: 100%;
@@ -547,6 +645,8 @@ header {
   .poker {
     padding: 0vw 1vw 0vw 2vw;
     height: 35vw;
+    box-sizing: border-box;
+    overflow: hidden;
     .poker-img {
       width: 23vw;
       height: 34vw;
@@ -562,6 +662,23 @@ header {
         position: absolute;
         top: 2vw;
         left: 4vw;
+      }
+      .mianJ {
+        width: 30vw;
+        height: 6vw;
+        position: absolute;
+        left: 0;
+        bottom: 9vw;
+        font-size: 10px;
+        text-align: left;
+        padding-left: 11px;
+        color: #fff;
+      }
+      .lei {
+        position: absolute;
+        left: 0;
+        bottom: 4vw;
+        padding-left: 3vw;
       }
     }
     .poker-img:nth-child(1) {
@@ -715,9 +832,66 @@ header {
         display: block;
       }
     }
-    .bulletin_right{
+    .bulletin_right {
       float: right;
-      
+    }
+  }
+}
+.recommend {
+  width: 100%;
+  background: #f0f2f5;
+  padding: 0 3vw 0 3vw;
+  box-sizing: border-box;
+  margin-top: 3vw;
+  .rcm-img {
+    width: 100%;
+    height: 9vw;
+    background: #fff;
+
+    img {
+      height: 100%;
+    }
+  }
+  .rcm-list {
+    width: 100%;
+    li {
+      width: 46.5vw;
+      height: 70vw;
+      float: left;
+      background-color: #fff;
+      margin-right: 1vw;
+      margin-bottom: 1vw;
+      overflow: hidden;
+      .rcm-listImg {
+        width: 100%;
+        height: 47vw;
+        img {
+          width: 100%;
+        }
+      }
+      .rcm-listTxt {
+        padding: 1vw;
+        .rcm-listIcon {
+          // float: left;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          word-break: break-all;
+        }
+        .rcm-listXs {
+          border: 1px solid #686868;
+          padding: 4px;
+          font-size: 10px;
+        }
+        .rcm-fontSiz {
+          color: #cb3403;
+        }
+      }
+    }
+    li:nth-child(2n) {
+      margin-right: 0;
     }
   }
 }

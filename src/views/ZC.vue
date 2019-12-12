@@ -2,7 +2,7 @@
   <div class="loginBox cl">
     <header>
       <div class="arrowBox">
-        <van-icon name="arrow-left" size="25px" class="arrow" @click="$router.back()" />
+        <van-icon name="arrow-left" size="25px" class="arrow"z />
         <div class="txt">京东登录注册</div>
       </div>
     </header>
@@ -12,7 +12,7 @@
         <!-- <van-icon name="cross" size="10px" /> -->
         <input type="password" class="inp2" placeholder="输入密码" v-model="pas" />
       </div>
-      <div class="loginIcon" @click="fn">登录</div>
+      <div class="loginIcon" @click="fn">注册</div>
       <div class="yzBox cl">
         <span class="lt">短信登录验证</span>
         <span class="rt">手机快速注册</span>
