@@ -5,7 +5,7 @@
       <van-tabbar-item  to="/home">
       <img src="../assets/logo/download.png" class="logos" alt="">
       </van-tabbar-item>
-      <van-tabbar-item  to="/classify">
+      <van-tabbar-item  to="/classify?type=1">
       <img src="../assets/logo/2.png" class="logos" alt="">
       </van-tabbar-item>
       <van-tabbar-item >

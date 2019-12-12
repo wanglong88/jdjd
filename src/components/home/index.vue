@@ -2,19 +2,20 @@
   <div>
     <div class="Box">
       <header>
-        <span class="ico">
+        <span class="ico" @click="$router.push('/classify')">
           <img src="../../assets/下载.png" />
         </span>
         <van-search
           placeholder="请输入搜索关键词"
           shape="round"
-          @search="onSearch"
+          @focus="onSearch"
           style="box-sizing:boder-box;
         padding-right:50px;
         "
           background="none"
+
         ></van-search>
-        <span class="icon">
+        <span class="icon" @click="$router.push('/user')">
           <img src="../../assets/man.png" />
         </span>
       </header>
@@ -366,7 +367,9 @@ export default {
     };
   },
   methods: {
-    onSearch() {}
+    onSearch() {
+      this.$router.push({path:'/classify',query:{type:0}})
+    }
   },
   components: {}
 };

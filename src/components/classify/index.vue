@@ -1,21 +1,36 @@
 <template>
   <div class="ify">
     <div class="header">
-      <van-icon class="left" name="arrow-left" />
-      <van-search class="sou1" shape="round" placeholder="电动自行车" v-model="value" @click="change" />
-      <van-icon class="add" name="ellipsis" />
+      <van-icon class="left" name="arrow-left" @click="change2" />
+      <van-search
+        class="sou1"
+        shape="round"
+        placeholder="电动自行车"
+        v-model="value"
+        @click="change"
+        v-if="flag"
+      />
+      <van-search
+        class="sou1"
+        shape="round"
+        placeholder="电动自行车"
+        v-model="value"
+        autofocus
+        @click="change"
+        v-else-if="!flag"
+        @search="chart"
+      />
+
+      <my-search v-else></my-search>
+
+      <van-icon class="add" name="ellipsis" @click="change4" v-show="bbb" />
+      <span class="btn" @click.13="chart" v-show="bbb2">搜索</span>
     </div>
-     <div class="sou">
-         <div class="shan">
-             <span>最近搜索</span>
-             <span></span>
-         </div>
-     </div>
+    <sousu v-if="show"></sousu>
     <van-tree-select
-    v-if='ff'
+      v-if="!show"
       class="zuo"
       height="200vw"
-      
       :items="items"
       :main-active-index.sync="activeIndex"
     >
@@ -220,15 +235,45 @@
         </div>
       </template>
     </van-tree-select>
+
+    <ul class="ye" v-show="shi">
+      <li>
+        <van-icon class="ll" name="wap-home-o" />
+        <span>首页</span>
+      </li>
+      <li>
+        <van-icon class="ll" name="wap-home-o" />
+        <span>分类搜索</span>
+      </li>
+      <li>
+        <van-icon class="ll" name="shopping-cart-o" />
+        <span>购物车</span>
+      </li>
+      <li>
+        <van-icon class="ll" name="contact" />
+        <span>我的京东</span>
+      </li>
+      <li>
+        <van-icon class="ll" name="contact" />
+        <span>浏览记录</span>
+      </li>
+    </ul>
   </div>
 </template>
 <script>
 // @ is an alias to /src
+import sousu from "../sousu";
+
 export default {
   name: "index",
   data() {
     return {
-      ff:false,  
+      bbb: true,
+      bbb2: false,
+      shi: false,
+      // show: false,
+
+      flag: true,
       value: "",
       activeIndex: 0,
       items: [
@@ -252,16 +297,51 @@ export default {
         { text: "酒水饮料" },
         { text: "家居家装" },
         { text: "家具厨具" },
-        { text: "箱包手袋" },
-       
+        { text: "箱包手袋" }
       ]
     };
   },
-
+  mounted() {},
+  components: {
+    sousu
+  },
   methods: {
-      change(){
-        // this.ff=!this.ff 
+    change() {
+      
+      this.show1 = true;
+      this.bbb = false;
+      this.bbb2 = true;
+      this.flag = !this.flag;
+      this.$router.replace("/classify?type=0");
+      this.$forceUpdate() ;
+    },
+    chart() {
+      if (!this.value) return;
+      this.$router.push("/classify/search");
+    },
+    change2() {
+      this.show1 = false;
+      // this.show = true;
+      this.$router.back();
+      // this.$route.query.type = 1
+      this.bbb = true;
+      this.bbb2 = false;
+      // this.$router.go(-1);
+    },
+
+    change4() {
+      this.shi = !this.shi;
+    }
+  },
+  computed: {
+    show: {
+      get() {
+        return this.$route.query.type == 0;
+      },
+      set(){
+
       }
+    }
   }
 };
 </script>
@@ -271,18 +351,31 @@ export default {
   padding: 0;
 }
 
-
 .ify {
   box-sizing: border-box;
   > .header {
     width: 100vw;
     font-size: 30px;
+    height: 15vw;
     border-bottom: 1px solid #ccc;
     position: fixed;
     left: 0;
     top: 0;
     z-index: 10;
     background: #fff;
+    overflow: hidden;
+    .btn {
+      width: 3vw;
+      height: 2.5vw;
+      background: red;
+      color: #fff;
+      font-size: 16px;
+      padding: 1vw;
+      position: relative;
+      left: 40vw;
+      top: -13vw;
+      border-radius: 5px;
+    }
 
     .left {
       float: left;
@@ -311,7 +404,7 @@ export default {
     top: 15vw;
     left: 0;
     .van-tree-select__content {
-        flex: 3
+      flex: 3;
     }
     .yi {
       .fen {
@@ -345,7 +438,8 @@ export default {
         margin: 3vw 0 2vw 2vw;
       }
     }
-    .yi,.er,
+    .yi,
+    .er,
     .san,
     .si,
     .wu,
@@ -388,6 +482,34 @@ export default {
         text-align: left;
         text-indent: 5vw;
         margin: 3vw 0 2vw 2vw;
+      }
+    }
+  }
+
+  .ye {
+    width: 35vw;
+    height: 55vw;
+    background: rgba(0, 0, 0, 0.9);
+    position: fixed;
+    right: 3vw;
+    top: 17vw;
+    z-index: 10;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: 400;
+    list-style-type: none;
+    li {
+      width: 100%;
+      height: 11vw;
+      text-align: left;
+      line-height: 11vw;
+      text-indent: 1vw;
+      font-size: 15px;
+      span {
+        margin-left: 3vw;
+      }
+      .ll {
+        font-size: 18px;
       }
     }
   }
