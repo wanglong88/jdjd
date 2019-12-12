@@ -2,7 +2,7 @@
   <div>
     <div class="Box">
       <header>
-        <span class="ico">
+        <span class="ico" @click="fn">
           <img src="../../assets/下载.png" />
         </span>
         <van-search
@@ -14,7 +14,7 @@
         "
           background="none"
         ></van-search>
-        <span class="icon">
+        <span class="icon" @click="log">
           <img src="../../assets/man.png" />
         </span>
       </header>
@@ -35,7 +35,6 @@
                   :key="index"
                   :icon="item.img"
                   :text="item.txt"
-                  background-color="red"
                 ></van-grid-item>
               </van-grid>
             </van-swipe-item>
@@ -104,7 +103,6 @@
               <span class="mianJ">{{i.mj}}</span>
               <span class="lei">{{i.L}}</span>
             </li>
-            
           </ul>
           <div class="tit">
             <div class="tit-img">
@@ -319,6 +317,11 @@
             </ul>
           </div>
         </div>
+        <div class="WWW">
+          <a href="#">
+            <div class="m-back-to-top">走你!</div>
+          </a>
+        </div>
       </main>
     </div>
   </div>
@@ -414,36 +417,64 @@ export default {
           id: 9
         }
       ],
-      pokerList:[
+      pokerList: [
         {
-          img:require("../../assets/ms.png"),
-          imgs:require("../../assets/1212/1212.jpg"),
-          mj:"领199减100券",
-          L:"宠物生活"
+          img: require("../../assets/ms.png"),
+          imgs: require("../../assets/1212/1212.jpg"),
+          mj: "领199减100券",
+          L: "宠物生活"
         },
         {
-          img:require("../../assets/ms.png"),
-          imgs:require("../../assets/1212/1212.jpg"),
-          mj:"领199减100券",
-          L:"宠物生活"
+          img: require("../../assets/ms.png"),
+          imgs: require("../../assets/1212/1212.jpg"),
+          mj: "领199减100券",
+          L: "宠物生活"
         },
         {
-          img:require("../../assets/ms.png"),
-          imgs:require("../../assets/1212/1212.jpg"),
-          mj:"领199减100券",
-          L:"宠物生活"
+          img: require("../../assets/ms.png"),
+          imgs: require("../../assets/1212/1212.jpg"),
+          mj: "领199减100券",
+          L: "宠物生活"
+        },
+        {
+          img: require("../../assets/ms.png"),
+          imgs: require("../../assets/1212/1212.jpg"),
+          mj: "领199减100券",
+          L: "宠物生活"
         }
       ],
       time: 30 * 60 * 60 * 1000
     };
   },
   methods: {
-    onSearch() {}
+    onSearch() {},
+    fn() {
+      // console.log(this);
+      this.$router.push("/classify");
+    },
+    log() {
+      this.$router.push("/user");
+    }
   },
   components: {}
 };
 </script>
 <style lang="less" scoped>
+.WWW {
+  width: 10vw;
+  height: 10vw;
+  position: fixed;
+  bottom: 18vw;
+  right: 3vw;
+  background: green;
+  border-radius: 50%;
+  
+  .m-back-to-top {
+   padding-top: 2vw;
+   color: #fff;
+  }
+}
+
 .Box {
   background: #f0f2f5;
 }
@@ -618,6 +649,8 @@ header {
   .poker {
     padding: 0vw 1vw 0vw 2vw;
     height: 35vw;
+    box-sizing: border-box;
+    overflow: hidden;
     .poker-img {
       width: 23vw;
       height: 34vw;
