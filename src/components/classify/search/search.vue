@@ -63,7 +63,7 @@ export default {
   },
   components: {
     "my-search2": search2,
-    "my-search3": search3
+    "my-search3": search3,
   },
   methods: {
     onSearch() {},

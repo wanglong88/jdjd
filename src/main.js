@@ -5,7 +5,7 @@ import store from './store'
 
 
 
-import { Tabbar, TabbarItem ,Icon ,Search, Tab, Tabs, TreeSelect, Grid, GridItem, Dialog,Button,DropdownMenu, DropdownItem, RadioGroup, Radio , CheckboxGroup ,Checkbox} from "vant";
+import { Tabbar, TabbarItem ,Icon ,Search, Tab, Tabs, TreeSelect, Grid, GridItem, Dialog,Button,DropdownMenu, DropdownItem, RadioGroup, Radio , CheckboxGroup ,Checkbox, Lazyload} from "vant";
 import { Tag } from 'vant';
 
 Vue.use(Tag);
@@ -16,6 +16,7 @@ Vue.use(Dialog)
 Vue.use(DropdownMenu).use(DropdownItem)
 Vue.use(RadioGroup);
 Vue.use(Radio);
+Vue.use(Lazyload);
  
 
 import 'vant/lib/index.css';
