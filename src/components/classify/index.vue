@@ -68,69 +68,68 @@
             </div>
 
             <van-grid :gutter="10" :column-num="3">
-              <van-grid-item v-for="(item,index) in ary" :key="index" :icon="item.img" :text="item.name" />
+              <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name"  v-lazy="ary1"/>
             </van-grid>
             <div>
               <h3 class="lt1">家电热搜</h3>
               <van-grid :gutter="10" :column-num="3">
-                <van-grid-item v-for="(item1,index) in ary1" :key="index" :icon="item1.img" :text="item1.name" />
+                <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name"  v-lazy="ary1"/>
               </van-grid>
             </div>
            
             <div>
               <h3 class="lt1">家电热搜</h3>
               <van-grid :gutter="10" :column-num="3">
-              <van-grid-item v-for="(item,index) in ary" :key="index" :icon="item.img" :text="item.name" />
+              <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" v-lazy="ary1"/>
             </van-grid>
             </div>
           </div>
-
           <div class="er" v-if="activeIndex === 1">
             <div>
               <h3 class="lt2">热门品牌</h3>
               <van-grid :gutter="10" :column-num="3">
-                <van-grid-item v-for="(item,index) in ary" :key="index" :icon="item.img" :text="item.name" />
+                <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" v-lazy="ary1"/>
               </van-grid>
             </div>
             <div>
               <h3 class="lt2">热门品牌</h3>
               <van-grid :gutter="10" :column-num="3">
-                <van-grid-item v-for="(item1,index) in ary1" :key="index" :icon="item1.img" :text="item1.name" />
+                <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" v-lazy="ary1" />
               </van-grid>
             </div>
             <div>
               <h3 class="lt2">热门品牌</h3>
               <van-grid :gutter="10" :column-num="3">
-               <van-grid-item v-for="(item1,index) in ary1" :key="index" :icon="item1.img" :text="item1.name" />
+               <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" v-lazy="ary1" />
               </van-grid>
             </div>
             <div>
               <h3 class="lt2">热门品牌</h3>
               <van-grid :gutter="10" :column-num="3">
-               <van-grid-item v-for="(item1,index) in ary1" :key="index" :icon="item1.img" :text="item1.name" />
+               <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" />
               </van-grid>
             </div>
             <div>
               <h3 class="lt2">热门品牌</h3>
               <van-grid :gutter="10" :column-num="3">
-               <van-grid-item v-for="(item1,index) in ary1" :key="index" :icon="item1.img" :text="item1.name" />
+               <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" />
               </van-grid>
             </div>
           </div>
           <div class="san" v-if="activeIndex === 2">
             <h3 class="lt3">热门乒乓</h3>
             <van-grid :gutter="10" :column-num="3">
-              <van-grid-item v-for="(item1,index) in ary1" :key="index" :icon="item1.img" :text="item1.name" />
+              <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" />
               
             </van-grid>
             <h3 class="lt3">热门乒乓</h3>
             <van-grid :gutter="10" :column-num="3">
-              <van-grid-item v-for="(item1,index) in ary1" :key="index" :icon="item1.img" :text="item1.name" />
+              <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" />
 
             </van-grid>
             <h3 class="lt3">热门乒乓</h3>
             <van-grid :gutter="10" :column-num="3">
-              <van-grid-item v-for="(item1,index) in ary1" :key="index" :icon="item1.img" :text="item1.name" />
+              <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" />
 
             </van-grid>
           </div>
@@ -138,25 +137,25 @@
             <div>
               <h3 class="lt4">热门乒我</h3>
               <van-grid :gutter="10" :column-num="3">
-               <van-grid-item v-for="(item1,index) in ary1" :key="index" :icon="item1.img" :text="item1.name" />
+               <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" />
               </van-grid>
             </div>
             <div>
               <h3 class="lt4">热门乒我</h3>
               <van-grid :gutter="10" :column-num="3">
-               <van-grid-item v-for="(item1,index) in ary1" :key="index" :icon="item1.img" :text="item1.name" />
+               <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" />
               </van-grid>
             </div>
             <div>
               <h3 class="lt4">热门乒我</h3>
               <van-grid :gutter="10" :column-num="3">
-               <van-grid-item v-for="(item1,index) in ary1" :key="index" :icon="item1.img" :text="item1.name" />
+               <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" />
               </van-grid>
             </div>
             <div>
               <h3 class="lt4">热门乒我</h3>
               <van-grid :gutter="10" :column-num="3">
-               <van-grid-item v-for="(item1,index) in ary1" :key="index" :icon="item1.img" :text="item1.name" />
+               <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" />
               </van-grid>
             </div>
           </div>
@@ -164,7 +163,7 @@
             <div>
               <h3 class="lt5">热门乒我</h3>
               <van-grid :gutter="10" :column-num="3">
-                <van-grid-item v-for="value in 6" :key="value" icon="photo-o" text="文字" />
+               <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" />
               </van-grid>
             </div>
           </div>
@@ -172,63 +171,63 @@
             <div>
               <h3 class="lt6">热门乒我</h3>
               <van-grid :gutter="10" :column-num="3">
-                <van-grid-item v-for="value in 6" :key="value" icon="photo-o" text="文字" />
+               <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" />
               </van-grid>
             </div>
           </div>
           <div class="qi" v-if="activeIndex === 6">
             <div>
               <h3 class="lt7">热门乒我</h3>
-              <van-grid :gutter="10" :column-num="3">
-                <van-grid-item v-for="value in 6" :key="value" icon="photo-o" text="文字" />
+               <van-grid :gutter="10" :column-num="3">
+               <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" />
               </van-grid>
             </div>
           </div>
           <div class="ba" v-if="activeIndex === 7">
             <div>
               <h3 class="lt8">热门乒我</h3>
-              <van-grid :gutter="10" :column-num="3">
-                <van-grid-item v-for="value in 6" :key="value" icon="photo-o" text="文字" />
+               <van-grid :gutter="10" :column-num="3">
+               <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" />
               </van-grid>
             </div>
           </div>
           <div class="jiu" v-if="activeIndex === 8">
             <div>
               <h3 class="lt9">热门乒我</h3>
-              <van-grid :gutter="10" :column-num="3">
-                <van-grid-item v-for="value in 6" :key="value" icon="photo-o" text="文字" />
+               <van-grid :gutter="10" :column-num="3">
+               <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" />
               </van-grid>
             </div>
           </div>
           <div class="shi" v-if="activeIndex === 9">
             <div>
               <h3 class="lt10">热门乒我</h3>
-              <van-grid :gutter="10" :column-num="3">
-                <van-grid-item v-for="value in 6" :key="value" icon="photo-o" text="文字" />
+               <van-grid :gutter="10" :column-num="3">
+               <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" />
               </van-grid>
             </div>
           </div>
           <div class="shiyi" v-if="activeIndex === 10">
             <div>
               <h3 class="lt11">热门乒我</h3>
-              <van-grid :gutter="10" :column-num="3">
-                <van-grid-item v-for="value in 6" :key="value" icon="photo-o" text="文字" />
+               <van-grid :gutter="10" :column-num="3">
+               <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" />
               </van-grid>
             </div>
           </div>
           <div class="s2" v-if="activeIndex === 11">
             <div>
               <h3 class="lt12">热门乒我</h3>
-              <van-grid :gutter="10" :column-num="3">
-                <van-grid-item v-for="value in 6" :key="value" icon="photo-o" text="文字" />
+               <van-grid :gutter="10" :column-num="3">
+               <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" />
               </van-grid>
             </div>
           </div>
           <div class="s3" v-if="activeIndex === 12">
             <div>
               <h3 class="lt13">热门乒我</h3>
-              <van-grid :gutter="10" :column-num="3">
-                <van-grid-item v-for="value in 6" :key="value" icon="photo-o" text="文字" />
+               <van-grid :gutter="10" :column-num="3">
+               <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" />
               </van-grid>
             </div>
           </div>
@@ -236,15 +235,15 @@
             <div>
               <h3 class="lt14">热门乒我</h3>
               <van-grid :gutter="10" :column-num="3">
-                <van-grid-item v-for="value in 6" :key="value" icon="photo-o" text="文字" />
+               <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" />
               </van-grid>
             </div>
           </div>
           <div class="s5" v-if="activeIndex === 14">
             <div>
               <h3 class="lt15">热门乒我</h3>
-              <van-grid :gutter="10" :column-num="3">
-                <van-grid-item v-for="value in 6" :key="value" icon="photo-o" text="文字" />
+               <van-grid :gutter="10" :column-num="3">
+               <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" />
               </van-grid>
             </div>
           </div>
@@ -252,15 +251,15 @@
             <div>
               <h3 class="lt16">热门乒我</h3>
               <van-grid :gutter="10" :column-num="3">
-                <van-grid-item v-for="value in 6" :key="value" icon="photo-o" text="文字" />
+               <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" />
               </van-grid>
             </div>
           </div>
           <div class="s7" v-if="activeIndex === 16">
             <div>
               <h3 class="lt17">热门乒我</h3>
-              <van-grid :gutter="10" :column-num="3">
-                <van-grid-item v-for="value in 6" :key="value" icon="photo-o" text="文字" />
+               <van-grid :gutter="10" :column-num="3">
+               <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" />
               </van-grid>
             </div>
           </div>
@@ -268,15 +267,15 @@
             <div>
               <h3 class="lt18">热门乒我</h3>
               <van-grid :gutter="10" :column-num="3">
-                <van-grid-item v-for="value in 6" :key="value" icon="photo-o" text="文字" />
+               <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" />
               </van-grid>
             </div>
           </div>
           <div class="s9" v-if="activeIndex === 18">
             <div>
-              <h3 class="lt19">热门乒我</h3>
+              <h3 class="lt19">热门</h3>
               <van-grid :gutter="10" :column-num="3">
-                <van-grid-item v-for="value in 6" :key="value" icon="photo-o" text="文字" />
+               <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" />
               </van-grid>
             </div>
           </div>
@@ -310,6 +309,7 @@
 </template>
 <script>
 // @ is an alias to /src
+import {classifyfn} from '@/api/classify.js'
 
 import { Dialog } from "vant";
 export default {
@@ -350,126 +350,8 @@ export default {
         { text: "家具厨具" },
         { text: "箱包手袋" }
       ],
-      ary:[
-            {
-         name:'手机',
-        img:"//img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png"
-    },
-    {
-         name:'耳机',
-        img:"//img30.360buyimg.com/focus/s140x140_jfs/t1/21233/40/7634/13890/5c6d039bE8a65d667/aef9581abcc85725.png"
-    },
-    {
-         name:'华为',
-        img:"//img30.360buyimg.com/focus/s140x140_jfs/t1/1446/14/631/8500/5b9237e5E0d1f9e16/b1a627b92323b5ed.png"
-    },
-    {
-        name:'电饭煲', 
-        img:"//img20.360buyimg.com/focus/s140x140_jfs/t1/29265/29/7571/29171/5c6d0389E251fe5f2/987962eb75bfe813.png"
-    },
-    {
-        name:'电磁炉',
-        img:"//img11.360buyimg.com/focus/s140x140_jfs/t1/26217/19/7605/22816/5c6d03a3E4f263c9d/d6fc27b51078358c.png"
-    },
-    {
-        name:'路由器',
-        img:"//img14.360buyimg.com/focus/s140x140_jfs/t27400/283/1600620667/15106/a935e7bd/5be6f2e1Nfa8d9d6e.png"
-    }
-      ],
-      ary1:[
-        {
-        name:"避孕套",
-        img:"//img30.360buyimg.com/focus/s140x140_jfs/t1/18974/35/9836/31220/5c82223eE5dcc61b8/4e93c1fbb777bfca.png"
-    },
-    {
-        name:"口红",
-        img:"//img30.360buyimg.com/focus/s140x140_jfs/t1/19730/14/9859/10199/5c8225eeE5e925911/054ccd7992f86199.png"
-    },
-    {
-        name:"吹风机",
-        img:"//img12.360buyimg.com/focus/s140x140_jfs/t1/25144/37/2370/7617/5c1cae45Ea0ec5a85/f7ba433b5d1e072f.png"
-    },
-    {
-        name:"三只松鼠",
-        img:"//img11.360buyimg.com/focus/s140x140_jfs/t1/30718/32/2643/9923/5c6d03ecEabd2d664/aaee556800519e1f.png"
-    },
-    {
-        name:"洗衣液",
-        img:"//img13.360buyimg.com/focus/s140x140_jfs/t1/23312/39/9884/7280/5c822292E65f3929b/78ba741d321954b0.png"
-    },
-    {
-        name:"保温杯",
-        img:"//img11.360buyimg.com/focus/s140x140_jfs/t1/11731/9/10730/9518/5c822298Eb50b3275/33f88663e1c0284e.png"
-    },
-    {
-        name:"微波炉",
-        img:"//img10.360buyimg.com/focus/s140x140_jfs/t1/21353/14/7486/17896/5c6d03c0Eb9c58d49/9210736682f59e39.png"
-    },
-    {
-        name:"洗发水",
-        img:"//img13.360buyimg.com/focus/s140x140_jfs/t1/25168/27/9848/15397/5c822507E35d2ad16/384983a98758f8f8.png"
-    },
-    {
-        name:"家电热搜",
-        img:"//img20.360buyimg.com/focus/s140x140_jfs/t1/19562/14/9878/32183/5c8225f6E7c332db7/c886e52dc05b9ae4.png"
-    },
-    {
-        name:"冰箱",
-        img:"//img20.360buyimg.com/focus/s140x140_jfs/t21115/83/225125274/13856/5473fb3f/5b0567c1N59d53b27.png"
-    },
-    {
-        name:"洗衣机",
-        img:"//img20.360buyimg.com/focus/s140x140_jfs/t21115/83/225125274/13856/5473fb3f/5b0567c1N59d53b27.png"
-    },
-    {
-        name:"电视",
-        img:"//img12.360buyimg.com/focus/s140x140_jfs/t18106/218/2672347202/29951/3618e960/5b0567cdN275fbcdd.png"
-    },
-    {
-         name:'手机',
-        img:"//img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png"
-    },
-    {
-         name:'耳机',
-        img:"//img30.360buyimg.com/focus/s140x140_jfs/t1/21233/40/7634/13890/5c6d039bE8a65d667/aef9581abcc85725.png"
-    },
-    {
-         name:'华为',
-        img:"//img30.360buyimg.com/focus/s140x140_jfs/t1/1446/14/631/8500/5b9237e5E0d1f9e16/b1a627b92323b5ed.png"
-    },
-    {
-        name:'电饭煲', 
-        img:"//img20.360buyimg.com/focus/s140x140_jfs/t1/29265/29/7571/29171/5c6d0389E251fe5f2/987962eb75bfe813.png"
-    },
-    {
-        name:'电磁炉',
-        img:"//img11.360buyimg.com/focus/s140x140_jfs/t1/26217/19/7605/22816/5c6d03a3E4f263c9d/d6fc27b51078358c.png"
-    },
-    {
-        name:'路由器',
-        img:"//img14.360buyimg.com/focus/s140x140_jfs/t27400/283/1600620667/15106/a935e7bd/5be6f2e1Nfa8d9d6e.png"
-    },
-      {
-        name:"游戏手机",
-        img:"//img12.360buyimg.com/focus/s140x140_jfs/t11461/339/2354953633/8254/8c8c50d3/5a169217N5d1b842e.jpg"
-    },
-    {
-        name:"老人机",
-        img:"//img10.360buyimg.com/focus/s140x140_jfs/t11503/241/2246064496/4783/cea2850e/5a169216N0701c7f1.jpg"
-    },
-    {
-        name:"手机",
-        img:"//img30.360buyimg.com/focus/s140x140_jfs/t18955/187/1309277884/11517/fe100782/5ac48d27N3f5bb821.jpg"
-    },
-    {
-        name:"全面屏手机",
-        img:"//img11.360buyimg.com/focus/s140x140_jfs/t11470/45/2362968077/2689/fb36d9a0/5a169238Nc8f0882b.jpg"
-    },
-    {
-        name:"拍照手机",
-        img:"//img20.360buyimg.com/focus/s140x140_jfs/t12022/66/917351804/2257/7ddc58e5/5a169232Ndf76f53c.jpg"
-    }
-      ]
+     ary1:[]
+     
      
     };
   },
@@ -511,11 +393,20 @@ export default {
     },
     change5() {
       this.shi = false;
+    },
+    classifyData(){
+      classifyfn().then(data=>{
+        this.ary1=data.data;
+        
+      })
     }
-  }
+  },
+  created() {
+    this.classifyData()
+  },
 };
 </script>
-<style lang="less">
+<style lang="less" scoped>
 * {
   margin: 0;
   padding: 0;
