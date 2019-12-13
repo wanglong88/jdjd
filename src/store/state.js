@@ -1,3 +1,6 @@
+let userName = []
+
 export default {
-    show: false,
+    flag:false,
+    userName:userName ||[]
 }

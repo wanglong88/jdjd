@@ -52,9 +52,18 @@ export default {
         })
         .then(() => {
           // on confirm
-          this.data == 0 ? (this.ary = []) : null;
+          console.log(this.title)
+          // console.log(this.ary)
+          
+          this.ary.forEach(item=>{
+            console.log(item.data.length,'----',)
+            if(item.length==0){
+              console.log('44')
+            }})
+          // this.data.length == 0 ? (this.ary = []) : null;
           this.data.forEach((item, index) => {
             if (item.id == n) {
+              // this.ary = []
               this.data.splice(index, 1);
             }
           });

@@ -1,7 +1,7 @@
 <template>
   <div class="shopping">
     <div class="top">
-      <van-icon name="arrow-left" class="lt back" />
+      <van-icon name="arrow-left" class="lt back" @click="go1" />
       <span>购物车</span>
       <van-icon name="weapp-nav" class="rt" />
     </div>
@@ -10,14 +10,14 @@
         <van-icon name="location-o" />
         <picker class="city"></picker>
       </div>
-      <span class="rt">编辑商品</span>
+      <span class="rt" @click="editFn">编辑商品</span>
     </div>
     <div>
       登录后可同步账户购物车中的商品
       <van-button round type="info" size="small" color="red">登录</van-button>
     </div>
     <!-- 没有物品时 -->
-    <div class="empty" v-show="1">
+    <div class="empty" v-show="0">
       <div>
         <img
           src="https://img11.360buyimg.com/jdphoto/s180x180_jfs/t18163/292/540553659/74408/adeb7463/5a93c51cN3bb5e37b.png"
@@ -26,7 +26,7 @@
       </div>登录后可同步购物车中商品
     </div>
     <!-- 购物车有 -->
-    <div class="cart" v-show="0">
+    <div class="cart" v-show="1">
       <cart
         v-for="item in cartList"
         :key="item.id"
@@ -36,8 +36,11 @@
       ></cart>
     </div>
     <!-- 结算 -->
-    <van-submit-bar :price="Total" button-text="去结算">
+    <van-submit-bar :price="Total" button-text="去结算" v-show="Edi">
       <van-checkbox v-model="checked" checked-color="red">全选</van-checkbox>
+    </van-submit-bar>
+    <van-submit-bar button-text="删除" v-show="!Edi" @submit="delAll">
+      <van-checkbox v-model="checked" checked-color="red" style="position: absolute;left:0vw">全选</van-checkbox>
     </van-submit-bar>
     <div class="want" style="height:40vw;">可能你x</div>
   </div>
@@ -100,7 +103,8 @@ export default {
             }
           ]
         }
-      ]
+      ],
+      Edi: true
     };
   },
   computed: {
@@ -140,7 +144,27 @@ export default {
     cart,
     picker
   },
-  methods: {}
+  methods: {
+    go1() {
+      this.$router.go(-1);
+    },
+    editFn() {
+      this.Edi = !this.Edi;
+    },
+    delAll() {
+      this.$dialog
+        .confirm({
+          message: "确定删除此商品?"
+        })
+        .then(() => {
+          // on confirm
+          this.cartList = [];
+        })
+        .catch(() => {
+          // on cancel
+        });
+    }
+  }
 };
 </script>
 <style lang="less" scoped>
@@ -155,7 +179,7 @@ export default {
   }
   .edit {
     text-align: left;
-    i{
+    i {
       z-index: 30;
     }
     .city {
@@ -163,7 +187,7 @@ export default {
       top: 15vw;
       left: -14vw;
       overflow: hidden;
-      }
+    }
   }
   .empty {
     width: 100vw;

@@ -83,7 +83,7 @@ export default {
 };
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .demo-sku {
   .sku-container {
     padding: 0 15px;
