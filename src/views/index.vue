@@ -18,8 +18,8 @@
         <img src="../assets/logo/4.png" class="logos" alt />
       </van-tabbar-item>
       <van-tabbar-item  to="/user">
-      <img v-if="$store.state.flag" src="../assets/logo/5.png" class="logos" alt="">
-      <img v-if="!$store.state.flag" src="../assets/logo/6.png" class="logos" alt="">
+      <img v-if="flag" src="../assets/logo/5.png" class="logos" alt="">
+      <img v-if="!flag" src="../assets/logo/6.png" class="logos" alt="">
       </van-tabbar-item>
     </van-tabbar>
   </div>
@@ -32,26 +32,19 @@ export default {
   data() {
     return {
       data:'',
+      flag:false
     };
   },
   created(){
-  let Log = localStorage.getItem('login')
-  axios.get('/logs').then(data=>{
+  axios.get('/isLogin').then(data=>{
     if (data.data.code==0) {
-      this.$store.state.flag = true
+        this.flag = true
     }
   })
-  console.log(JSON.parse(Log));
+
   
   },
-  methods:{
-    //  fn(){
-    //    getpic().then(data=>{
-    //    console.log(data);
-    //  }).catch(()=>{
-
-    //  })
-    //  }
+  methods:{  
   }
 }
 </script>

@@ -13,10 +13,13 @@ export function getpic(option){
   export function getDpList(){
     return http.get('/department/list')
   }
+  //登录状态接口
+  export function isLogin(){
+    return http.get('/isLogin')
+  }
 
   // 登录接口
 export function Login(option){
-  console.log(option);
     return http.post('/login',option)
 }
   

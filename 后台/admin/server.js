@@ -75,7 +75,7 @@ app.get('/jingdong/pic', (req, res) => {
 		data: data
 	});
 });
-// 读取本地存储的用户名和密码
+// 读取本地存储的用户信息
 app.use((req, res, next) => {
 	readFile('./json/user.json').then(data => {
 		req.data = JSON.parse(data);
@@ -87,10 +87,17 @@ app.use((req, res, next) => {
 	})
 })
 
-app.get('/logs', function (req, res) {
+
+ 
+app.get('/isLogin', function (req, res) {
 	if (req.session.userId) {
 		res.send({
-			code: 0
+			code: 0,
+			img:req.data
+		})
+	} else {
+		res.send({
+			code: 1
 		})
 	}
 })
@@ -147,7 +154,8 @@ app.post('/login', function (req, res) {
 		res.send({
 			code: 0,
 			data: {
-				name: username
+				name: username,
+				img:req.data.img
 			}
 		})
 	} else {
@@ -160,13 +168,13 @@ app.post('/login', function (req, res) {
 
 // 清除Session
 app.post('/delSession', function (req, res) {
-    // req.session.removeAttribute(req.session.userId)
-    req.session.userId = null;
-    if (!req.session.userId) {
-        res.send({
-            code: 0,
-        })
-    }
+	// req.session.removeAttribute(req.session.userId)
+	req.session.userId = null;
+	if (!req.session.userId) {
+		res.send({
+			code: 0,
+		})
+	}
 })
 
 

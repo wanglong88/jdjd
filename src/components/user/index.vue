@@ -2,7 +2,10 @@
   <div>
     <header class="top">
       <div class="one cl">
-        <p class="lt">设置</p>
+        <p class="lt">
+          <router-link to="/setr" v-if="$store.state.flag">设置</router-link>
+          <router-link to=""  v-else>设置</router-link>
+        </p>
         <div class="lt">
           <van-icon name="chat-o" class="vantI" size="25px" />
         </div>
@@ -21,25 +24,31 @@
     <div class="boxB">
       <div class="boxOne">
         <span>
-          <van-icon name="balance-pay" size="28px" />
-          <p>待付款</p>
+          <van-icon name="balance-pay" size="30px" />
+          <div>
+            <router-link to="/views/orderpage.vue">待付款</router-link>
+          </div>
         </span>
         <span>
-          <van-icon name="gift-o" size="28px" />
-          <p>待收货</p>
+          <van-icon name="gift-o" size="30px" />
+          <div>
+            <router-link to="../../views/orderpage.vue">待收货</router-link>
+          </div>
         </span>
         <span>
-          <van-icon name="comment-o" size="28px" />
+          <van-icon name="comment-o" size="30px" />
           <p>待评价</p>
         </span>
         <span>
-          <van-icon name="gold-coin-o" size="28px" />
+          <van-icon name="gold-coin-o" size="30px" />
           <p>退换 /售后</p>
         </span>
         <!-- <div style="float:left;width: 1px;height: 66px; background: #ccc;"></div> -->
         <span>
-          <van-icon name="description" size="28px" color="red" />
-          <p>我的订单</p>
+          <van-icon name="description" size="30px" color="red" />
+          <div>
+            <router-link to="/view/orderpage">我的订单</router-link>
+          </div>
         </span>
       </div>
       <div class="boxTwo">
@@ -152,20 +161,38 @@
 // @ is an alias to /src
 import wd from './wDl'
 import yd from './yiDl'
+import axios from 'axios'
 export default {
   name: "XXX",
   data() {
-    return {};
+    return {
+      // flag:true
+    };
   },
   components: {
     wd,yd
   },
+  created(){
+    this.$store.dispatch('isLogins');
+    // axios.get('/isLogin').then(data=>{
+    //   console.log(data);
+      
+    //     if (data.data.code==0) {
+    //       this.flag = false
+    //     }
+    // })
+  },
   methods: {
-    
-  }
+    btn(){}
+  },
+  // computed:{
+  //   ddd(){
+  //      return !this.$store.state.flag
+  //   }
+  // }
 };
 </script>
-<style lang="less">
+<style lang="less" scoped>
 .top {
   background: url("../../assets/bj2.jpg");
   display: flex;
@@ -247,7 +274,7 @@ export default {
     }
   }
   .fourBox {
-      padding-bottom: 80px;
+    padding-bottom: 80px;
     border-top: 0.5px solid #cccccc;
     margin: 15px 5px 0 5px;
     .fsBox {

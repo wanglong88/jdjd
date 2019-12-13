@@ -9,6 +9,8 @@ import home from './home'
 import shooping from './shooping'
 import user from './user'
 import detailed from './detailed'
+
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -16,14 +18,22 @@ const routes = [
     path: '/',
     name: 'index',
     component: Index,
-    redirect:'/home',
-    // children:[].concat(classift,home,shooping,user)
-    children:[].concat(classift,home,shooping,user,detailed)
+    redirect: '/home',
+    children: [].concat(classift, home, shooping, user)
   },
   {
-    path:'/login',
-    name:'login',
-    component:Login
+    path: '/login',
+    name: 'login',
+    component: Login
+  },
+  {
+    path: '/view/orderpage',
+    name: 'orderpage',
+    component: () => import(/* webpackChunkName: "orderpage" */ '@/views/orderpage.vue')
+  },
+  {
+    path: '/setr',
+    component: () => import('@/components/setr/setr.vue')
   },
   {
     path:'/ZC',
@@ -35,13 +45,32 @@ const routes = [
     redirect:'/'
   }
   // {
-  //   path: '/about',
-  //   name: 'about',
-  //   // route level code-splitting
-  //   // this generates a separate chunk (about.[hash].js) for this route
-  //   // which is lazy-loaded when the route is visited.
-  //   component: () => import(/* webpackChunkName: "about" */ '../views/login.vue')
-  // }
+  //   path: '/user/all',
+  //   name: 'all',
+  //   component: () => import(/* webpackChunkName: "all" */ '@/components/user/myOrder/all.vue')
+  // },
+  // {
+  //   path: '/user/cancel',
+  //   name: 'cancel',
+  //   component: () => import(/* webpackChunkName: "cancel" */ '@/components/user/myOrder/cancel.vue')
+  // },
+  // {
+  //   path: '/user/ finished',
+  //   name: 'finished',
+  //   component: () => import(/* webpackChunkName: " finished" */ '@/components/user/myOrder/finished.vue')
+  // },
+  // {
+  //   path: '/user/waitpay',
+  //   name: 'waitpay',
+  //   component: () => import(/* webpackChunkName: " waitpay" */ '@/components/user/myOrder/waitpay.vue')
+  // },
+  // {
+  //   path: '/user/waitreceive',
+  //   name: 'waitreceive',
+  //   component: () => import(/* webpackChunkName: "waitreceive" */ '@/components/user/myOrder/waitreceive.vue')
+  // },
+
+
 ]
 
 const router = new VueRouter({

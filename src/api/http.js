@@ -7,7 +7,6 @@ import axios from 'axios'
 const http = axios.create({
     // baseURL: url,
     transformRequest(data) {
-        console.log(data)
         // lodash
         let str = '';
         for(let k in data){

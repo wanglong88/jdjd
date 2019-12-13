@@ -2,7 +2,7 @@
   <div class="loginBox cl">
     <header>
       <div class="arrowBox">
-        <van-icon name="arrow-left" size="25px" class="arrow"z />
+        <van-icon name="arrow-left" size="25px" class="arrow" @click="$router.back()" />
         <div class="txt">京东登录注册</div>
       </div>
     </header>
@@ -41,6 +41,8 @@
 </template>
 <script>
 // @ is an alias to /src
+import axios from "axios";
+import { Dialog } from "vant";
 export default {
   name: "XXX",
   data() {
@@ -49,29 +51,57 @@ export default {
       pas: ""
     };
   },
-  components: {},
+  components: {
+    [Dialog.Component.name]: Dialog.Component
+  },
   methods: {
     btn() {},
     fn() {
-      //  var params = new URLSearchParams();
-      //  params.append('username',this.name)
-      //  params.append('password',this.pas)
-      this.$store
-        .dispatch("userN", { username: this.name, password: this.pas })
+      if (!this.name || !this.pas) {
+        Dialog.alert({
+          message: "用户名密码不能为空"
+        }).then(() => {
+          // on close
+        });
+        return;
+      }
+
+      axios
+        .post("/sign", { username: this.name, password: this.pas })
         .then(data => {
           console.log(data);
-          if (data.code == 0) {
-            //  this.$router.push('')
-            // console.log(data.data)
-            console.log(this.$store.state.userName);
-            // this.$store.state.
-            console.log("登录成功");
-            this.$router.push("/");
+          if (data.data.code == 0) {
+            console.log("注册成功");
+            Dialog.alert({
+              message: "注册成功,返回登录!"
+            }).then(() => {
+             this.$router.push("/login");
+            });
+            
+          } else {
+            console.log("该用户已注册");
           }
         })
-        .catch(err => { 
-          console.log(err, "失败");
+        .catch(err => {
+          console.log(err, "注册失败");
         });
+
+      // this.$store
+      //   .dispatch("userN", { username: this.name, password: this.pas })
+      //   .then(data => {
+      //     console.log(data);
+      //     if (data.code == 0) {
+      //       //  this.$router.push('')
+      //       // console.log(data.data)
+      //       console.log(this.$store.state.userName);
+      //       // this.$store.state.
+      //       console.log("登录成功");
+      //       this.$router.push("/");
+      //     }
+      //   })
+      //   .catch(err => {
+      //     console.log(err, "失败");
+      //   });
     }
   }
 };

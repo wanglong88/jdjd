@@ -41,18 +41,22 @@
 </template>
 <script>
 // @ is an alias to /src
+import { Toast, Notify } from "vant";
 export default {
-  name: "XXX",
+  name: "login",
   data() {
     return {
       name: "",
       pas: ""
     };
   },
-  components: {},
   methods: {
     btn() {},
     fn() {
+      if (!this.name || !this.pas) {
+        Toast("用户名密码不能为空！");
+        return;
+      }
       //  var params = new URLSearchParams();
       //  params.append('username',this.name)
       //  params.append('password',this.pas)
@@ -61,16 +65,18 @@ export default {
         .then(data => {
           console.log(data);
           if (data.code == 0) {
-            //  this.$router.push('')
-            // console.log(data.data)
-            console.log(this.$store.state.userName);
-            // this.$store.state.
-            console.log("登录成功");
-            this.$router.push("/");
+            Notify({ type: "success", message: "登录成功,即将跳到首页",duration:2000  });
+            setTimeout(() => {
+              this.$router.push("/");
+            }, 2000);
+          }else{
+Notify({ type: 'danger', message: '登录失败,用户名密码错误'});
           }
         })
-        .catch(err => { 
-          console.log(err, "失败");
+        .catch(err => {
+          console.log(err,'6666');
+          
+         
         });
     }
   }
@@ -93,7 +99,8 @@ export default {
 .inpBox {
   width: 10vw;
   height: 8vw;
-  > .inp1 {
+  > .inp1,
+  .inp2 {
     text-align: center;
     border: none;
     border-bottom: 1px solid #ccc;
@@ -101,22 +108,14 @@ export default {
     height: 6vh;
     margin: 20px auto;
   }
-  > .inp2 {
-    text-align: center;
-    border: none;
-    border-bottom: 1px solid #ccc;
-    width: 90vw;
-    height: 6vh;
-    margin: 10px auto;
-  }
 }
 .loginIcon {
   margin: 150px auto;
   background: rgb(247, 114, 114);
   width: 80vw;
-  height: 10vh;
+  height: 8vh;
   text-align: center;
-  line-height: 10vh;
+  line-height: 8vh;
   border-radius: 36px;
   font-size: 30px;
 }
