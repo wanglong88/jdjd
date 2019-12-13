@@ -17,7 +17,7 @@
         :close-on-click-overlay="closeOnClickOverlay"
         :custom-sku-validator="customSkuValidator"
         :show-add-cart-btn="true"
-        @buy-clicked="onBuyClicked"
+        
         @add-cart="onAddCartClicked"
       />
       <div @click="showBase = true" class="gggg">{{stt}}</div>
@@ -49,7 +49,7 @@ export default {
     };
   },
   created() {
-    // console.log(this);
+    
   },
   computed: {
     str() {
@@ -62,17 +62,23 @@ export default {
   //data.selectedSkuComb.size  购买的尺寸
   methods: {
     fn() {
-      // console.log(this);
+      /* console.log(data); */
+      
     },
     //点击购买
     onBuyClicked(data) {
       this.$toast("buy:" + JSON.stringify(data));
+      console.log(data);
     },
     // 加入购物车
     onAddCartClicked(data) {
       
-      this.$toast("buy:" + JSON.stringify(data));
-      /* this.showBase = false;
+      this.$toast('已加入购物车');
+      /* console.log(this.showBase,'1'); */
+      this.showBase = false;
+      /* console.log(this.showBase,'2'); */
+      
+      /* 
       this.stt = data.selectedSkuComb.color + "," + data.selectedSkuComb.size;
       this.$emit("qqq", {
         num: data.selectedNum,

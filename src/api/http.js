@@ -11,9 +11,9 @@ const http = axios.create({
         // lodash
         let str = '';
         for(let k in data){
-            str += `${k}=${data[k]}&`
+            str += `&${k}=${data[k]}`
         }
-        return str;
+        return str.slice(1);
     },
     params: {
         t: Math.random()

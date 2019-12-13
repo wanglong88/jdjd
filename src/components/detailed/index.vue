@@ -95,19 +95,28 @@
           color="rgb(139, 123, 123)"
         />
       </van-cell>
-      <van-cell size="large" class="yidatuo2">
-        <div class="youhuitext1">送至</div>
 
-        <van-icon
-          slot="right-icon"
-          name="ellipsis"
-          style="line-height: inherit;"
-          size="7vw"
-          color="rgb(139, 123, 123)"
+      <van-cell size="large" class="che">
+        <van-field
+          readonly
+          clickable
+          :value="value"
+          placeholder="选择城市"
+          @click="showPicker = true"
+          class="che1"
         />
+        <div class="che2">城市</div>
       </van-cell>
-      <van-cell size="large">
-        <div class="youhuitext1">优惠</div>
+
+      <van-cell size="large" class="yunfei">
+        <div class="yunfei1">运费</div>
+        <div class="yunfei2">免运费</div>
+        <div>
+          <van-icon name="passed" color="red" />商家发货&售后
+        </div>
+        <div>
+          <van-icon name="passed" color="red" />7天无理由退货
+        </div>
         <van-icon
           slot="right-icon"
           name="ellipsis"
@@ -117,8 +126,90 @@
         />
       </van-cell>
     </div>
+    <div class="erdatuo">
+      <van-cell size="large" class="pingjiaheader">
+        <div class="pheader1">评价</div>
+        <div class="pheader2">好评97%</div>
+        <div class="pheader3">共50条+</div>
+        <van-icon
+          slot="right-icon"
+          name="ellipsis"
+          style="line-height: inherit;"
+          size="7vw"
+          color="rgb(139, 123, 123)"
+        />
+      </van-cell>
+      <van-cell size="large" class="pinglun1">
+        <div class="zuogong">做工一流(99)</div>
+        <van-icon name="https://b.yzcdn.cn/vant/icon-demo-1126.png" size="6vw" class="ytou" />
+        <div class="useid1">
+          李*伟
+          <van-rate
+            v-model="value"
+            icon="like"
+            void-icon="star"
+            void-color="yellow"
+            class="star"
+            size="3vw"
+          />
+          <div class="btime">2099-8-9</div>
+        </div>
+        <div class="zhengjing">可以，和我想象中差不多。细节上也还可以。</div>
+      </van-cell>
+      <van-cell size="large" class="pinglun1">
+        <van-icon name="https://b.yzcdn.cn/vant/icon-demo-1126.png" size="6vw" class="ytou" />
+        <div class="useid1">
+          王*龙
+          <van-rate
+            v-model="value"
+            icon="like"
+            void-icon="star"
+            void-color="yellow"
+            class="star"
+            size="3vw"
+          />
+          <div class="btime">2099-8-9</div>
+        </div>
+        <div class="zhengjing">行孩子很喜欢，就是价格有点贵。</div>
+      </van-cell>
+      <van-cell size="large" class="pinglun1">
+        <van-icon name="https://b.yzcdn.cn/vant/icon-demo-1126.png" size="6vw" class="ytou" />
+        <div class="useid1">
+          李*沛
+          <van-rate
+            v-model="value"
+            icon="like"
+            void-icon="star"
+            void-color="yellow"
+            class="star"
+            size="3vw"
+          />
+          <div class="btime">2099-8-9</div>
+        </div>
+        <div class="zhengjing">可以，和我想象中差不多。细节上也还可以。</div>
+      </van-cell>
+      <van-cell size="large">
+        <div class="gengduo">查看更多</div>
+      </van-cell>
+      <!-- <van-image width="100vw;" height="50vw" src='.../assets/店铺.png'  class="dianpu"/> -->
+    </div>
+    <div class="xuanxiang">
+      <van-tabs v-model="activeName">
+        <van-tab title="商品介绍" name="a"><div class="jkl">事到如今 ，除了同行已经没人用pc看京东了</div></van-tab>
+        <van-tab title="规格参数" name="b"><div class="jkl">我们没有参数</div></van-tab>
+        <van-tab title="售后保障" name="c"><div class="jkl">你在想peach</div></van-tab>
+      </van-tabs>
+    </div>
     <sku class="skubox"></sku>
-    <van-area :area-list="areaList" class="chengshi" />
+
+    <van-popup v-model="showPicker" position="bottom">
+      <van-picker
+        show-toolbar
+        :columns="columns"
+        @cancel="showPicker = false"
+        @confirm="onConfirm"
+      />
+    </van-popup>
   </div>
 </template>
 
@@ -127,6 +218,8 @@ import sku from "./sku";
 export default {
   data() {
     return {
+      activeName: "a",
+      src: "../../asset/店铺.png",
       tuid0: true,
       tuid1: false,
       tuid2: false,
@@ -135,7 +228,10 @@ export default {
       price1: "",
       price2: "",
       dk:
-        "国产东方Project 幽幽子芙兰朵露 蕾米莉亚神枪 八云紫紫妈手办模型 红魔传说大小姐-22cm 做工精美，不要错过~"
+        "国产东方Project 幽幽子芙兰朵露 蕾米莉亚神枪 八云紫紫妈手办模型 红魔传说大小姐-22cm 做工精美，不要错过~",
+      value: "",
+      showPicker: false,
+      columns: ["杭州", "宁波", "温州", "嘉兴", "湖州"]
     };
   },
   created() {
@@ -178,6 +274,10 @@ export default {
       this.price2 = (this.price - this.price1).toFixed(2) * 100;
       /* console.log(this.price1);
         console.log(this.price2) */
+    },
+    onConfirm(value) {
+      this.value = value;
+      this.showPicker = false;
     }
   },
   components: {
@@ -189,7 +289,7 @@ export default {
 <style lang="less" scoped>
 .boss {
   background-color: #eee;
-  height: 1000vh;
+  height:400vw;
   width: 100%;
   z-index: -999;
   .header {
@@ -364,7 +464,7 @@ export default {
   .yidatuo {
     position: absolute;
     width: 100vw;
-    height: 64vw;
+    height: 58vw;
     margin-top: 153vw;
     background-color: white;
     .yidatuo1 {
@@ -378,11 +478,113 @@ export default {
         font-size: 3vw;
       }
     }
-    .yidatuo2{
+    .che {
+      height: 15vw;
+      margin-top: 0vw;
+      .che1 {
+        margin-top: -2vw;
+        margin-left: 35vw;
+        border: none;
+      }
+      .che2 {
+        position: absolute;
+        margin-top: -9vw;
+        color: rgb(139, 123, 123);
+        font-size: 3.5vw;
+      }
+    }
+    .yunfei {
+      .yunfei1 {
+        color: rgb(139, 123, 123);
+        font-size: 3.5vw;
+      }
+      .yunfei2 {
+        position: absolute;
+        margin-left: 10vw;
+        margin-top: -6.5vw;
+      }
+    }
+    /* .yidatuo2 {
       .youhuitext1 {
         font-size: 3vw;
         color: rgb(139, 123, 123);
       }
+    } */
+  }
+  .erdatuo {
+    position: absolute;
+    width: 100vw;
+    height: 80vw;
+    margin-top: 215vw;
+    background-color: white;
+    .pingjiaheader {
+      .pheader1 {
+        font-size: 4vw;
+      }
+      .pheader2 {
+        color: red;
+        position: absolute;
+        margin-top: -6.5vw;
+        margin-left: 10vw;
+      }
+      .pheader3 {
+        position: absolute;
+        margin-top: -6.5;
+
+        font-size: 2vw;
+      }
+    }
+    .pinglun1 {
+      .zuogong {
+        font-size: 3vw;
+        color: rgb(139, 123, 123);
+        background: pink;
+        height: 5vw;
+        width: 20vw;
+        text-align: center;
+        border-radius: 2vw;
+        line-height: 5vw;
+      }
+    }
+    .ytou {
+      margin-top: 5vw;
+    }
+    .useid1 {
+      margin-top: -8vw;
+      margin-left: 8vw;
+      .star {
+        margin-left: 3vw;
+        margin-top: -5vw;
+      }
+      .btime {
+        margin-top: -6.5vw;
+        margin-left: 65vw;
+      }
+      .zhengjing {
+        font-size: 10vw;
+      }
+    }
+    .gengduo {
+      font-size: 3vw;
+      color: rgb(139, 123, 123);
+      background: orange;
+      height: 5vw;
+      width: 20vw;
+      text-align: center;
+      border-radius: 2vw;
+      line-height: 5vw;
+      margin-left: 34vw;
+    }
+  }
+  .xuanxiang{
+    position: absolute;
+    margin-top: 320vw;
+    height: 55vw;
+    width: 100vw;
+    .jkl{
+      width: 100vw;
+      height: 50vw;
+      background: white;
     }
   }
   .skubox {
@@ -392,7 +594,7 @@ export default {
     width: 100vw;
     font-size: 4vw;
   }
-  .chengshi{
+  .chengshi {
     position: absolute;
     margin-top: 250vw;
     height: 50vw;
