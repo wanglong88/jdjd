@@ -38,7 +38,7 @@ export default {
       showStepper: false,
       showSoldout: false,
       closeOnClickOverlay: true,
-      stt: "天蓝色,M",
+      stt: "白色,XXXL",
       initialSku: {
         s1: "30349",
         s2: "1193",
@@ -65,15 +65,17 @@ export default {
     },
     //点击购买
     onBuyClicked(data) {
-      this.$toast("buy:" + JSON.stringify(data));
+      this.$toast('请登录');
     },
     // 加入购物车
     onAddCartClicked(data) {
+      console.log(data.selectedSkuComb)
       this.showBase = false;
       this.stt = data.selectedSkuComb.color + "," + data.selectedSkuComb.size;
       this.$emit("qqq", {
         num: data.selectedNum,
         price: data.selectedSkuComb.price,
+        url: data.selectedSkuComb.imgUrl,
         id: this.id
       });
     }

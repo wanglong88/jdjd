@@ -6,7 +6,7 @@
       <van-card :num="i.num" :price="i.price" :title="i.title" :thumb="i.thumb">
         <div slot="tags">
           <span class="choose">
-            <sku @qqq="fn" :id="i.id"></sku>
+            <sku @qqq="fn" :id="i.id" ></sku>
           </span>
         </div>
         <div slot="footer">
@@ -41,6 +41,9 @@ export default {
       this.data.forEach(item => {
         if (item.id === obj.id) {
           item.num = obj.num;
+          console.log('aa',obj.url)
+          console.log('aa',item.src)
+          item.src = obj.url
           item.price = obj.price / 100;
         }
       });
