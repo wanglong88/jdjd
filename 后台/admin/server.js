@@ -102,6 +102,28 @@ app.get('/isLogin', function (req, res) {
 	}
 })
 
+app.use((req, res, next) => {
+    readFile('./json/searchClass.json').then(data => {
+        req.searchData = JSON.parse(data);
+        console.log(req)
+        next()
+    }).catch(err => {
+        // 读取失败 给前端500
+        res.status(500);
+        res.send('找不到你要的数据哦');
+    })
+})
+app.use((req, res, next) => {
+    readFile('./json/classify.json').then(data => {
+        req.classifyData = JSON.parse(data);
+        console.log(req)
+        next()
+    }).catch(err => {
+        // 读取失败 给前端500
+        res.status(500);
+        res.send('找不到你要的数据哦');
+    })
+})
 // 获取用户详细信息
 app.get('/user/info', function (req, res) {
 	let { userId } = req.body;
@@ -166,6 +188,8 @@ app.post('/login', function (req, res) {
 	}
 })
 
+
+
 // 清除Session
 app.post('/delSession', function (req, res) {
 	// req.session.removeAttribute(req.session.userId)
@@ -177,6 +201,23 @@ app.post('/delSession', function (req, res) {
 	}
 })
 
+
+app.get('/search', function (req, res) {
+    console.log(666)
+    res.send({
+        code: 0,
+        data: req.searchData
+
+    })
+})
+app.get('/classify', function (req, res) {
+    console.log(666)
+    res.send({
+        code: 0,
+        data: req.classifyData
+
+    })
+})
 
 
 

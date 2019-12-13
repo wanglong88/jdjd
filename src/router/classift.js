@@ -13,13 +13,7 @@ export default [
         path:'/classify/search',
         name:'search',
         component:Search,
-        // children:[
-        //     {
-        //         path:"/classify/search/search1",
-        //         name:'search1',
-        //         component:Search1
-        //     }
-        // ]  
+         
         
     }
 ]

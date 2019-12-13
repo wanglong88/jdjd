@@ -1,21 +1,24 @@
 <template>
   <div class="aa">
-      
     <ul class="bb">
-      <li v-for="(item,index) in ary" :key="index">
+      <li v-for="(item,index) in mydata" :key="index">
         <div class="imgbox">
-          <img :src="item.img" alt />
+          <img :src="item.img" alt v-lazy="item.img" />
         </div>
         <div class="tuxia">
           <div class="min">
             <i>
-              <img src="//img11.360buyimg.com/jdphoto/s68x28_jfs/t1/62842/26/16626/3386/5ddf389cEd91a6f80/13fcdbc8f4c0eb88.png" alt="">
+              <img
+                src="//img11.360buyimg.com/jdphoto/s68x28_jfs/t1/62842/26/16626/3386/5ddf389cEd91a6f80/13fcdbc8f4c0eb88.png"
+                alt
+              />
             </i>
 
             <span>{{item.name}}</span>
           </div>
           <div class="pri">
-            <i>￥</i> {{item.price}}.
+            <i>￥</i>
+            {{item.price}}.
             <i>00</i>
           </div>
           <div class="de">{{item.desc}}</div>
@@ -30,139 +33,25 @@
 </template>
 <script>
 // @ is an alias to /src
+import { searchfn } from "@/api/search.js";
 export default {
   name: "search3",
   data() {
     return {
-      ary: [
-        {
-          name:
-            "特步童鞋 儿童运动鞋男童跑鞋2019秋冬新款皮面防水中大童休闲鞋 黑红 35",
-          price: "199",
-          desc: "300条评价",
-          id: "",
-          img:
-            "//img12.360buyimg.com/mobilecms/s270x270_jfs/t1/46054/5/13401/160845/5da2fe09E076fb79a/b286c4f81c7166df.jpg!q70.dpg.webp"
-        },
-        {
-          name:
-            "特步童鞋 儿童运动鞋男童跑鞋2019秋冬新款皮面防水中大童休闲鞋 黑红 35",
-          price: "299",
-          desc: "300条评价",
-          id: "",
-          img:
-            "////img12.360buyimg.com/mobilecms/s270x270_jfs/t1/46054/5/13401/160845/5da2fe09E076fb79a/b286c4f81c7166df.jpg!q70.dpg.webp"
-        },
-        {
-          name:
-            "特步童鞋 儿童运动鞋男童跑鞋2019秋冬新款皮面防水中大童休闲鞋 黑红 35",
-          price: "299",
-          desc: "300条评价",
-          id: "",
-          img:
-            "//img12.360buyimg.com/mobilecms/s270x270_jfs/t1/46054/5/13401/160845/5da2fe09E076fb79a/b286c4f81c7166df.jpg!q70.dpg.webp"
-        },
-        {
-          name:
-            "特步童鞋 儿童运动鞋男童跑鞋2019秋冬新款皮面防水中大童休闲鞋 黑红 35",
-          price: "44",
-          desc: "300条评价",
-          id: "",
-          img:
-            "//img12.360buyimg.com/mobilecms/s270x270_jfs/t1/46054/5/13401/160845/5da2fe09E076fb79a/b286c4f81c7166df.jpg!q70.dpg.webp"
-        },
-        {
-          name:
-            "特步童鞋 儿童运动鞋男童跑鞋2019秋冬新款皮面防水中大童休闲鞋 黑红 35",
-          price: "444",
-          desc: "300条评价",
-          id: "",
-          img:
-            "//img12.360buyimg.com/mobilecms/s270x270_jfs/t1/46054/5/13401/160845/5da2fe09E076fb79a/b286c4f81c7166df.jpg!q70.dpg.webp"
-        },
-        {
-          name:
-            "特步童鞋 儿童运动鞋男童跑鞋2019秋冬新款皮面防水中大童休闲鞋 黑红 35",
-          price: "123",
-          desc: "300条评价",
-          id: "",
-          img:
-            "//img12.360buyimg.com/mobilecms/s270x270_jfs/t1/46054/5/13401/160845/5da2fe09E076fb79a/b286c4f81c7166df.jpg!q70.dpg.webp"
-        },
-        {
-          name:
-            "特步童鞋 儿童运动鞋男童跑鞋2019秋冬新款皮面防水中大童休闲鞋 黑红 35",
-          price: "123",
-          desc: "300条评价",
-          id: "",
-          img:
-            "//img12.360buyimg.com/mobilecms/s270x270_jfs/t1/46054/5/13401/160845/5da2fe09E076fb79a/b286c4f81c7166df.jpg!q70.dpg.webp"
-        },
-        {
-          name:
-            "特步童鞋 儿童运动鞋男童跑鞋2019秋冬新款皮面防水中大童休闲鞋 黑红 35",
-          price: "123",
-          desc: "300条评价",
-          id: "",
-          img:
-            "//img12.360buyimg.com/mobilecms/s270x270_jfs/t1/46054/5/13401/160845/5da2fe09E076fb79a/b286c4f81c7166df.jpg!q70.dpg.webp"
-        },
-        {
-          name:
-            "特步童鞋 儿童运动鞋男童跑鞋2019秋冬新款皮面防水中大童休闲鞋 黑红 35",
-          price: "123",
-          desc: "300条评价",
-          id: "",
-          img:
-            "//img12.360buyimg.com/mobilecms/s270x270_jfs/t1/46054/5/13401/160845/5da2fe09E076fb79a/b286c4f81c7166df.jpg!q70.dpg.webp"
-        },
-        {
-          name:
-            "特步童鞋 儿童运动鞋男童跑鞋2019秋冬新款皮面防水中大童休闲鞋 黑红 35",
-          price: "123",
-          desc: "300条评价",
-          id: "",
-          img:
-            "//img12.360buyimg.com/mobilecms/s270x270_jfs/t1/46054/5/13401/160845/5da2fe09E076fb79a/b286c4f81c7166df.jpg!q70.dpg.webp"
-        },
-        {
-          name:
-            "特步童鞋 儿童运动鞋男童跑鞋2019秋冬新款皮面防水中大童休闲鞋 黑红 35",
-          price: "123",
-          desc: "300条评价",
-          id: "",
-          img:
-            "//img12.360buyimg.com/mobilecms/s270x270_jfs/t1/46054/5/13401/160845/5da2fe09E076fb79a/b286c4f81c7166df.jpg!q70.dpg.webp"
-        },
-        {
-          name:
-            "特步童鞋 儿童运动鞋男童跑鞋2019秋冬新款皮面防水中大童休闲鞋 黑红 35",
-          price: "123",
-          desc: "300条评价",
-          id: "",
-          img:
-            "//img12.360buyimg.com/mobilecms/s270x270_jfs/t1/46054/5/13401/160845/5da2fe09E076fb79a/b286c4f81c7166df.jpg!q70.dpg.webp"
-        },
-        {
-          name:
-            "特步童鞋 儿童运动鞋男童跑鞋2019秋冬新款皮面防水中大童休闲鞋 黑红 35",
-          price: "123",
-          desc: "300条评价",
-          id: "",
-          img:
-            "//img12.360buyimg.com/mobilecms/s270x270_jfs/t1/46054/5/13401/160845/5da2fe09E076fb79a/b286c4f81c7166df.jpg!q70.dpg.webp"
-        },
-        {
-          name:
-            "特步童鞋 儿童运动鞋男童跑鞋2019秋冬新款皮面防水中大童休闲鞋 黑红 35",
-          price: "123",
-          desc: "300条评价",
-          id: "",
-          img:
-            "//img12.360buyimg.com/mobilecms/s270x270_jfs/t1/46054/5/13401/160845/5da2fe09E076fb79a/b286c4f81c7166df.jpg!q70.dpg.webp"
-        },
-      ]
+      mydata:[]
     };
+  },
+  methods: {
+    searchgetData() {
+      console.log(searchfn, 8888);
+      searchfn().then(data => {
+        this.mydata = data.data;
+        console.log(this.mydata);
+      });
+    }
+  },
+  created() {
+    this.searchgetData();
   },
   components: {}
 };
@@ -173,7 +62,7 @@ export default {
   height: 126vw;
   overflow: scroll;
   box-sizing: border-box;
-  
+
   > .bb {
     width: 95vw;
     height: 100vw;
