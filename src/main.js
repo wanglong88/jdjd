@@ -5,14 +5,14 @@ import store from './store'
 import Vuex from 'vuex'
 import '@/less/common.less'
 
-import Vant from 'vant';
-import 'vant/lib/index.css';
-Vue.use(Vant);
 
 import Api from './api/index.js';
+import Vant from 'vant';
+Vue.use(Vant);
 Vue.prototype.$api = Api;
 import axios from 'axios'
 Vue.prototype.$ajax = axios
+import 'vant/lib/index.css';
 
 Vue.config.productionTip = false
 
