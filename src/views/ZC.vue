@@ -3,7 +3,7 @@
     <header>
       <div class="arrowBox">
         <van-icon name="arrow-left" size="25px" class="arrow" @click="$router.back()" />
-        <div class="txt">京东登录注册</div>
+        <div class="txt">京东注册</div>
       </div>
     </header>
     <main>

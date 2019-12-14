@@ -1,4 +1,4 @@
-let userName = JSON.parse(localStorage.getItem('Name')||[]);
+let userName = JSON.parse(localStorage.getItem('Name'));
 let flag = JSON.parse(localStorage.getItem('flag'));
 let img = JSON.parse(localStorage.getItem('img'));
 // let userName = []

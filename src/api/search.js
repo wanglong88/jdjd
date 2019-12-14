@@ -1,5 +1,5 @@
 
-import http from './index'
+import http from './http'
 export function searchfn() {
     return http.get('/search')
 }

@@ -2,8 +2,24 @@
   <div class="ify">
     <div class="header">
       <van-icon class="left" name="arrow-left" @click="change2" />
-      <van-search class="sou1" shape="round" placeholder="电动自行车" v-model="value" @click="change" v-if="flag" />
-      <van-search class="sou1" shape="round" placeholder="电动自行车" v-model="value" autofocus @click="change" v-else-if="!flag" @search='chart' />
+      <van-search
+        class="sou1"
+        shape="round"
+        placeholder="电动自行车"
+        v-model="value"
+        @click="change"
+        v-if="flag"
+      />
+      <van-search
+        class="sou1"
+        shape="round"
+        placeholder="电动自行车"
+        v-model="value"
+        autofocus
+        @click="change"
+        v-else-if="!flag"
+        @search="chart"
+      />
 
       <my-search v-else></my-search>
 
@@ -29,7 +45,7 @@
           </div>
 
           <van-grid :gutter="10" :column-num="3">
-            <van-grid-item v-for="value in 6" :key="value" icon="photo-o" text="文字" />
+            <van-grid-item v-for="value in ary1" :key="value" icon="photo-o" text="文字" />
           </van-grid>
           <div>
             <h3 class="lt1">家电热搜</h3>
@@ -55,94 +71,167 @@
           <div>
             <h3 class="lt2">热门品牌</h3>
             <van-grid :gutter="10" :column-num="3">
-              <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name"  v-lazy="ary1"/>
+              <van-grid-item
+                v-for="(item,index) in ary1"
+                :key="index"
+                :icon="item.img"
+                :text="item.name"
+                v-lazy="ary1"
+              />
             </van-grid>
             <div>
               <h3 class="lt1">家电热搜</h3>
-              <van-grid :gutter="10" :column-num="3">
-                <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name"  v-lazy="ary1"/>
+                <van-grid :gutter="10" :column-num="3">
+                <van-grid-item
+                  v-for="(item,index) in ary1"
+                  :key="index"
+                  :icon="item.img"
+                  :text="item.name"
+                />
               </van-grid>
             </div>
-           
+
             <div>
               <h3 class="lt1">家电热搜</h3>
-              <van-grid :gutter="10" :column-num="3">
-              <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" v-lazy="ary1"/>
-            </van-grid>
+                <van-grid :gutter="10" :column-num="3">
+                <van-grid-item
+                  v-for="(item,index) in ary1"
+                  :key="index"
+                  :icon="item.img"
+                  :text="item.name"
+                />
+              </van-grid>
             </div>
           </div>
           <div class="er" v-if="activeIndex === 1">
             <div>
               <h3 class="lt2">热门品牌</h3>
-              <van-grid :gutter="10" :column-num="3">
-                <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" v-lazy="ary1"/>
+                <van-grid :gutter="10" :column-num="3">
+                <van-grid-item
+                  v-for="(item,index) in ary1"
+                  :key="index"
+                  :icon="item.img"
+                  :text="item.name"
+                />
+              </van-grid>
+            </div>
+            <div>
+              <h3 class="lt2">热门品牌</h3>
+                <van-grid :gutter="10" :column-num="3">
+                <van-grid-item
+                  v-for="(item,index) in ary1"
+                  :key="index"
+                  :icon="item.img"
+                  :text="item.name"
+                />
+              </van-grid>
+            </div>
+            <div>
+              <h3 class="lt2">热门品牌</h3>
+                <van-grid :gutter="10" :column-num="3">
+                <van-grid-item
+                  v-for="(item,index) in ary1"
+                  :key="index"
+                  :icon="item.img"
+                  :text="item.name"
+                />
               </van-grid>
             </div>
             <div>
               <h3 class="lt2">热门品牌</h3>
               <van-grid :gutter="10" :column-num="3">
-                <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" v-lazy="ary1" />
+                <van-grid-item
+                  v-for="(item,index) in ary1"
+                  :key="index"
+                  :icon="item.img"
+                  :text="item.name"
+                />
               </van-grid>
             </div>
             <div>
               <h3 class="lt2">热门品牌</h3>
               <van-grid :gutter="10" :column-num="3">
-               <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" v-lazy="ary1" />
-              </van-grid>
-            </div>
-            <div>
-              <h3 class="lt2">热门品牌</h3>
-              <van-grid :gutter="10" :column-num="3">
-               <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" />
-              </van-grid>
-            </div>
-            <div>
-              <h3 class="lt2">热门品牌</h3>
-              <van-grid :gutter="10" :column-num="3">
-               <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" />
+                <van-grid-item
+                  v-for="(item,index) in ary1"
+                  :key="index"
+                  :icon="item.img"
+                  :text="item.name"
+                />
               </van-grid>
             </div>
           </div>
           <div>
             <h3 class="lt2">热门品牌</h3>
             <van-grid :gutter="10" :column-num="3">
-              <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" />
-              
+              <van-grid-item
+                v-for="(item,index) in ary1"
+                :key="index"
+                :icon="item.img"
+                :text="item.name"
+              />
             </van-grid>
             <h3 class="lt3">热门乒乓</h3>
             <van-grid :gutter="10" :column-num="3">
-              <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" />
-
+              <van-grid-item
+                v-for="(item,index) in ary1"
+                :key="index"
+                :icon="item.img"
+                :text="item.name"
+              />
             </van-grid>
             <h3 class="lt3">热门乒乓</h3>
             <van-grid :gutter="10" :column-num="3">
-              <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" />
-
+              <van-grid-item
+                v-for="(item,index) in ary1"
+                :key="index"
+                :icon="item.img"
+                :text="item.name"
+              />
             </van-grid>
           </div>
           <div class="si" v-if="activeIndex === 3">
             <div>
               <h3 class="lt4">热门乒我</h3>
               <van-grid :gutter="10" :column-num="3">
-               <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" />
+                <van-grid-item
+                  v-for="(item,index) in ary1"
+                  :key="index"
+                  :icon="item.img"
+                  :text="item.name"
+                />
               </van-grid>
             </div>
             <div>
               <h3 class="lt4">热门乒我</h3>
               <van-grid :gutter="10" :column-num="3">
-               <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" />
+                <van-grid-item
+                  v-for="(item,index) in ary1"
+                  :key="index"
+                  :icon="item.img"
+                  :text="item.name"
+                />
               </van-grid>
             </div>
             <div>
               <h3 class="lt4">热门乒我</h3>
               <van-grid :gutter="10" :column-num="3">
-               <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" />
+                <van-grid-item
+                  v-for="(item,index) in ary1"
+                  :key="index"
+                  :icon="item.img"
+                  :text="item.name"
+                />
               </van-grid>
             </div>
             <div>
               <h3 class="lt4">热门乒我</h3>
               <van-grid :gutter="10" :column-num="3">
-               <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" />
+                <van-grid-item
+                  v-for="(item,index) in ary1"
+                  :key="index"
+                  :icon="item.img"
+                  :text="item.name"
+                />
               </van-grid>
             </div>
           </div>
@@ -150,7 +239,12 @@
             <div>
               <h3 class="lt5">热门乒我</h3>
               <van-grid :gutter="10" :column-num="3">
-               <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" />
+                <van-grid-item
+                  v-for="(item,index) in ary1"
+                  :key="index"
+                  :icon="item.img"
+                  :text="item.name"
+                />
               </van-grid>
             </div>
           </div>
@@ -158,63 +252,103 @@
             <div>
               <h3 class="lt6">热门乒我</h3>
               <van-grid :gutter="10" :column-num="3">
-               <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" />
+                <van-grid-item
+                  v-for="(item,index) in ary1"
+                  :key="index"
+                  :icon="item.img"
+                  :text="item.name"
+                />
               </van-grid>
             </div>
           </div>
           <div class="qi" v-if="activeIndex === 6">
             <div>
               <h3 class="lt7">热门乒我</h3>
-               <van-grid :gutter="10" :column-num="3">
-               <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" />
+              <van-grid :gutter="10" :column-num="3">
+                <van-grid-item
+                  v-for="(item,index) in ary1"
+                  :key="index"
+                  :icon="item.img"
+                  :text="item.name"
+                />
               </van-grid>
             </div>
           </div>
           <div class="ba" v-if="activeIndex === 7">
             <div>
               <h3 class="lt8">热门乒我</h3>
-               <van-grid :gutter="10" :column-num="3">
-               <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" />
+              <van-grid :gutter="10" :column-num="3">
+                <van-grid-item
+                  v-for="(item,index) in ary1"
+                  :key="index"
+                  :icon="item.img"
+                  :text="item.name"
+                />
               </van-grid>
             </div>
           </div>
           <div class="jiu" v-if="activeIndex === 8">
             <div>
               <h3 class="lt9">热门乒我</h3>
-               <van-grid :gutter="10" :column-num="3">
-               <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" />
+              <van-grid :gutter="10" :column-num="3">
+                <van-grid-item
+                  v-for="(item,index) in ary1"
+                  :key="index"
+                  :icon="item.img"
+                  :text="item.name"
+                />
               </van-grid>
             </div>
           </div>
           <div class="shi" v-if="activeIndex === 9">
             <div>
               <h3 class="lt10">热门乒我</h3>
-               <van-grid :gutter="10" :column-num="3">
-               <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" />
+              <van-grid :gutter="10" :column-num="3">
+                <van-grid-item
+                  v-for="(item,index) in ary1"
+                  :key="index"
+                  :icon="item.img"
+                  :text="item.name"
+                />
               </van-grid>
             </div>
           </div>
           <div class="shiyi" v-if="activeIndex === 10">
             <div>
               <h3 class="lt11">热门乒我</h3>
-               <van-grid :gutter="10" :column-num="3">
-               <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" />
+              <van-grid :gutter="10" :column-num="3">
+                <van-grid-item
+                  v-for="(item,index) in ary1"
+                  :key="index"
+                  :icon="item.img"
+                  :text="item.name"
+                />
               </van-grid>
             </div>
           </div>
           <div class="s2" v-if="activeIndex === 11">
             <div>
               <h3 class="lt12">热门乒我</h3>
-               <van-grid :gutter="10" :column-num="3">
-               <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" />
+              <van-grid :gutter="10" :column-num="3">
+                <van-grid-item
+                  v-for="(item,index) in ary1"
+                  :key="index"
+                  :icon="item.img"
+                  :text="item.name"
+                />
               </van-grid>
             </div>
           </div>
           <div class="s3" v-if="activeIndex === 12">
             <div>
               <h3 class="lt13">热门乒我</h3>
-               <van-grid :gutter="10" :column-num="3">
-               <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" />
+              <van-grid :gutter="10" :column-num="3">
+                <van-grid-item
+                  v-for="(item,index) in ary1"
+                  :key="index"
+                  :icon="item.img"
+                  :text="item.name"
+                />
               </van-grid>
             </div>
           </div>
@@ -222,15 +356,25 @@
             <div>
               <h3 class="lt14">热门乒我</h3>
               <van-grid :gutter="10" :column-num="3">
-               <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" />
+                <van-grid-item
+                  v-for="(item,index) in ary1"
+                  :key="index"
+                  :icon="item.img"
+                  :text="item.name"
+                />
               </van-grid>
             </div>
           </div>
           <div class="s5" v-if="activeIndex === 14">
             <div>
               <h3 class="lt15">热门乒我</h3>
-               <van-grid :gutter="10" :column-num="3">
-               <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" />
+              <van-grid :gutter="10" :column-num="3">
+                <van-grid-item
+                  v-for="(item,index) in ary1"
+                  :key="index"
+                  :icon="item.img"
+                  :text="item.name"
+                />
               </van-grid>
             </div>
           </div>
@@ -238,15 +382,25 @@
             <div>
               <h3 class="lt16">热门乒我</h3>
               <van-grid :gutter="10" :column-num="3">
-               <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" />
+                <van-grid-item
+                  v-for="(item,index) in ary1"
+                  :key="index"
+                  :icon="item.img"
+                  :text="item.name"
+                />
               </van-grid>
             </div>
           </div>
           <div class="s7" v-if="activeIndex === 16">
             <div>
               <h3 class="lt17">热门乒我</h3>
-               <van-grid :gutter="10" :column-num="3">
-               <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" />
+              <van-grid :gutter="10" :column-num="3">
+                <van-grid-item
+                  v-for="(item,index) in ary1"
+                  :key="index"
+                  :icon="item.img"
+                  :text="item.name"
+                />
               </van-grid>
             </div>
           </div>
@@ -254,7 +408,12 @@
             <div>
               <h3 class="lt18">热门乒我</h3>
               <van-grid :gutter="10" :column-num="3">
-               <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" />
+                <van-grid-item
+                  v-for="(item,index) in ary1"
+                  :key="index"
+                  :icon="item.img"
+                  :text="item.name"
+                />
               </van-grid>
             </div>
           </div>
@@ -262,7 +421,12 @@
             <div>
               <h3 class="lt19">热门</h3>
               <van-grid :gutter="10" :column-num="3">
-               <van-grid-item v-for="(item,index) in ary1" :key="index" :icon="item.img" :text="item.name" />
+                <van-grid-item
+                  v-for="(item,index) in ary1"
+                  :key="index"
+                  :icon="item.img"
+                  :text="item.name"
+                />
               </van-grid>
             </div>
           </div>
@@ -297,7 +461,7 @@
 <script>
 // @ is an alias to /src
 import sousu from "../sousu";
-import {classifyfn} from '@/api/classify.js'
+import { classifyfn } from "@/api/classify.js";
 // import Vant,{Lazyload} from 'vant';
 // options 为可选参数，无则不传
 // Vue.use(Lazyload, options);
@@ -337,9 +501,7 @@ export default {
         { text: "家具厨具" },
         { text: "箱包手袋" }
       ],
-     ary1:[]
-     
-     
+      ary1: []
     };
   },
   mounted() {},
@@ -348,13 +510,12 @@ export default {
   },
   methods: {
     change() {
-      
       this.show1 = true;
       this.bbb = false;
       this.bbb2 = true;
       this.flag = !this.flag;
       this.$router.replace("/classify?type=0");
-      this.$forceUpdate() ;
+      this.$forceUpdate();
     },
     chart() {
       if (!this.value) return;
@@ -379,31 +540,25 @@ export default {
       get() {
         return this.$route.query.type == 0;
       },
-      set(){
-
-      }
+      set() {}
     },
     change5() {
-      this.shi = false; 
-    },
+      this.shi = false;
+    }
     // classifyData(){
     //   classifyfn().then(data=>{
     //     this.ary1=data.data;
     //     console.log();
-        
-        
+
     //   })
     // }
   },
   created() {
-     classifyfn().then(data=>{
-        this.ary1=data.data;
-        console.log(data);
-        
-        
-        
-      })
-  },
+    classifyfn().then(data => {
+      this.ary1 = data.data;
+      console.log(data);
+    });
+  }
 };
 </script>
 <style lang="less" scoped>

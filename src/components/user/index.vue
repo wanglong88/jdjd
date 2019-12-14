@@ -161,7 +161,7 @@
 // @ is an alias to /src
 import wd from './wDl'
 import yd from './yiDl'
-import axios from 'axios'
+// import axios from 'axios'
 export default {
   name: "XXX",
   data() {

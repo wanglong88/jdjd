@@ -158,7 +158,7 @@
             </div>
             <div class="flsPit_list">
               <ul class="flsPit_listAll">
-                <li>
+                <li @click="$router.push('/detailed')">
                   <span class="textA">免息星球</span>
                   <br />
                   <span class="textB">白条免息购</span>

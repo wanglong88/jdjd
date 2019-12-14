@@ -19,7 +19,7 @@ const routes = [
     name: 'index',
     component: Index,
     redirect: '/home',
-    children: [].concat(classift, home, shooping, user)
+    children: [].concat(classift, home, shooping, user,detailed)
   },
   {
     path: '/login',
@@ -74,7 +74,7 @@ const routes = [
 ]
 
 const router = new VueRouter({
-  mode: 'hash',
+  mode: 'history',
   base: process.env.BASE_URL,
   routes
 })
