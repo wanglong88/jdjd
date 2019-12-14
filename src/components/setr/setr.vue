@@ -166,9 +166,10 @@ export default {
     justify-content: space-between;
     margin: 15px 15px 0 15px;
     .nameBox {
-      margin: 10px 10px 10px 10px;
+      margin: 10px -10px 10px 10px;
       font-size: 19px;
       color: black;
+      white-space: nowrap;
     }
     .awwow {
       margin: 25px 10px 0 130px;

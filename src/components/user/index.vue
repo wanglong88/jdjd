@@ -26,13 +26,13 @@
         <span>
           <van-icon name="balance-pay" size="30px" />
           <div>
-            <router-link to="/views/orderpage.vue">待付款</router-link>
+            <router-link to="/view/orderpage">待付款</router-link>
           </div>
         </span>
         <span>
           <van-icon name="gift-o" size="30px" />
           <div>
-            <router-link to="../../views/orderpage.vue">待收货</router-link>
+            <router-link to="/view/orderpage">待收货</router-link>
           </div>
         </span>
         <span>

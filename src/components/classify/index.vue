@@ -26,50 +26,24 @@
       <van-icon class="add" name="ellipsis" @click="change4" v-show="bbb" />
       <span class="btn" @click.13="chart" v-show="bbb2">搜索</span>
     </div>
-    <sousu v-if="show"></sousu>
-    <van-tree-select
-      v-if="!show"
-      class="zuo"
-      height="200vw"
-      :items="items"
-      :main-active-index.sync="activeIndex"
-    >
-      <template slot="content">
-        <div class="yi" v-if="activeIndex === 0">
-          <div class="fen">
-            <h3 class="lt">热门分类</h3>
-            <h3 class="rt">
-              排行榜
-              <van-icon class="tu1" name="arrow" />
-            </h3>
-          </div>
+   <sousu v-if="show"></sousu>
+      <van-tree-select
+        v-if="!show"
+        class="zuo"
+        height="200vw"
+        :items="items"
+        :main-active-index.sync="activeIndex"
+      >
+        <template slot="content">
+          <div class="yi" v-if="activeIndex === 0">
+            <div class="fen">
+              <h3 class="lt">热门分类</h3>
+              <h3 class="rt">
+                排行榜
+                <van-icon class="tu1" name="arrow" />
+              </h3>
+            </div>
 
-          <van-grid :gutter="10" :column-num="3">
-            <van-grid-item v-for="value in ary1" :key="value" icon="photo-o" text="文字" />
-          </van-grid>
-          <div>
-            <h3 class="lt1">家电热搜</h3>
-            <van-grid :gutter="10" :column-num="3">
-              <van-grid-item v-for="value in 6" :key="value" icon="photo-o" text="文字" />
-            </van-grid>
-          </div>
-          <div>
-            <h3 class="lt1">家电热搜</h3>
-            <van-grid :gutter="10" :column-num="3">
-              <van-grid-item v-for="value in 6" :key="value" icon="photo-o" text="文字" />
-            </van-grid>
-          </div>
-          <div>
-            <h3 class="lt1">家电热搜</h3>
-            <van-grid :gutter="10" :column-num="3">
-              <van-grid-item v-for="value in 6" :key="value" icon="photo-o" text="文字" />
-            </van-grid>
-          </div>
-        </div>
-
-        <div class="er" v-if="activeIndex === 1">
-          <div>
-            <h3 class="lt2">热门品牌</h3>
             <van-grid :gutter="10" :column-num="3">
               <van-grid-item
                 v-for="(item,index) in ary1"
@@ -81,24 +55,26 @@
             </van-grid>
             <div>
               <h3 class="lt1">家电热搜</h3>
-                <van-grid :gutter="10" :column-num="3">
+              <van-grid :gutter="10" :column-num="3">
                 <van-grid-item
                   v-for="(item,index) in ary1"
                   :key="index"
                   :icon="item.img"
                   :text="item.name"
+                  v-lazy="ary1"
                 />
               </van-grid>
             </div>
 
             <div>
               <h3 class="lt1">家电热搜</h3>
-                <van-grid :gutter="10" :column-num="3">
+              <van-grid :gutter="10" :column-num="3">
                 <van-grid-item
                   v-for="(item,index) in ary1"
                   :key="index"
                   :icon="item.img"
                   :text="item.name"
+                  v-lazy="ary1"
                 />
               </van-grid>
             </div>
@@ -106,34 +82,37 @@
           <div class="er" v-if="activeIndex === 1">
             <div>
               <h3 class="lt2">热门品牌</h3>
-                <van-grid :gutter="10" :column-num="3">
+              <van-grid :gutter="10" :column-num="3">
                 <van-grid-item
                   v-for="(item,index) in ary1"
                   :key="index"
                   :icon="item.img"
                   :text="item.name"
+                  v-lazy="ary1"
                 />
               </van-grid>
             </div>
             <div>
               <h3 class="lt2">热门品牌</h3>
-                <van-grid :gutter="10" :column-num="3">
+              <van-grid :gutter="10" :column-num="3">
                 <van-grid-item
                   v-for="(item,index) in ary1"
                   :key="index"
                   :icon="item.img"
                   :text="item.name"
+                  v-lazy="ary1"
                 />
               </van-grid>
             </div>
             <div>
               <h3 class="lt2">热门品牌</h3>
-                <van-grid :gutter="10" :column-num="3">
+              <van-grid :gutter="10" :column-num="3">
                 <van-grid-item
                   v-for="(item,index) in ary1"
                   :key="index"
                   :icon="item.img"
                   :text="item.name"
+                  v-lazy="ary1"
                 />
               </van-grid>
             </div>
@@ -160,8 +139,8 @@
               </van-grid>
             </div>
           </div>
-          <div>
-            <h3 class="lt2">热门品牌</h3>
+          <div class="san" v-if="activeIndex === 2">
+            <h3 class="lt3">热门乒乓</h3>
             <van-grid :gutter="10" :column-num="3">
               <van-grid-item
                 v-for="(item,index) in ary1"
@@ -430,33 +409,33 @@
               </van-grid>
             </div>
           </div>
-        </div>
-      </template>
-    </van-tree-select>
+        </template>
+      </van-tree-select>
 
-    <ul class="ye" v-show="shi">
-      <li>
-        <van-icon class="ll" name="wap-home-o" />
-        <span>首页</span>
-      </li>
-      <li>
-        <van-icon class="ll" name="wap-home-o" />
-        <span>分类搜索</span>
-      </li>
-      <li>
-        <van-icon class="ll" name="shopping-cart-o" />
-        <span>购物车</span>
-      </li>
-      <li>
-        <van-icon class="ll" name="contact" />
-        <span>我的京东</span>
-      </li>
-      <li>
-        <van-icon class="ll" name="contact" />
-        <span>浏览记录</span>
-      </li>
-    </ul>
-  </div>
+      <ul class="ye" v-show="shi">
+        <li>
+          <van-icon class="ll" name="wap-home-o" />
+          <span>首页</span>
+        </li>
+        <li>
+          <van-icon class="ll" name="wap-home-o" />
+          <span>分类搜索</span>
+        </li>
+        <li>
+          <van-icon class="ll" name="shopping-cart-o" />
+          <span>购物车</span>
+        </li>
+        <li>
+          <van-icon class="ll" name="contact" />
+          <span>我的京东</span>
+        </li>
+        <li>
+          <van-icon class="ll" name="contact" />
+          <span>浏览记录</span>
+        </li>
+      </ul>
+    </div>
+  
 </template>
 <script>
 // @ is an alias to /src
